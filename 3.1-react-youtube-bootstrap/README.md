@@ -38,7 +38,6 @@ Quelques optimisations :
 - Dans le composant **"Video"** ne pas re-rendre la vidéo si la vidéo n'a pas changé lors du changement aléatoire.
 - toutes les X secondes, ajouter une nouvelle vidéo en haut de la **"VideoList"**
 - à l'apparition de chaque nouvelle vidéo, l'afficher de manière animée avec une transition CSS cf. https://facebook.github.io/react/docs/animation.html
-- utiliser les styles de bootstrap pour skinner les 2 composants 
 
 ## Proposition de DOM
 
