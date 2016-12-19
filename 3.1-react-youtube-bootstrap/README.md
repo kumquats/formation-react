@@ -44,12 +44,12 @@ Quelques optimisations :
 
 **Video**
 ```html
-<div className="row marketing">
-    <div className="col-sm-12 col-md-12">
-        <div className="thumbnail">
-            <div className="caption">
+<div class="row marketing">
+    <div class="col-sm-12 col-md-12">
+        <div class="thumbnail">
+            <div class="caption">
                 <video
-                    style={{ width: '100%', backgroundColor: 'black' }}
+                    style="width:100%; background-color:black"
                     height="300"
                     controls
                     src=""
@@ -66,18 +66,18 @@ Quelques optimisations :
 
 **VideoList**
 ```html
-<div className="row marketing">
-    <div className="col-lg-12">
-        <ul className="media-list">
-            <li className="media">
-                <div className="media-left">
-                    <img className="media-object"
+<div class="row marketing">
+    <div class="col-lg-12">
+        <ul class="media-list">
+            <li class="media">
+                <div class="media-left">
+                    <img class="media-object"
                         alt="cat" src='http://lorempixel.com/120/70/cats?r=0.1267489'
                         width="120"
                         height="70" />
                 </div>
-                <div className="media-body">
-                    <h4 className="media-heading"></h4>
+                <div class="media-body">
+                    <h4 class="media-heading"></h4>
                     <p></p>
                 </div>
             </li>
