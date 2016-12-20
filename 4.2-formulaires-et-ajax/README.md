@@ -13,7 +13,7 @@ Connecter l'application à des webservices et utiliser les formulaires avec Reac
         'config': 'config',
     }
   ```
-Vous pouvez ensuite dans votre code faire référence à l'objet config avec la ligne `ìmport config from 'config';`
+Vous pouvez ensuite dans votre code faire référence à l'objet config avec la ligne `import config from 'config';`
 
 ## Instructions
 **VideoList :**
