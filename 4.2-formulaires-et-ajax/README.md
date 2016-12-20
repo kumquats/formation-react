@@ -42,27 +42,29 @@ Vous pouvez ensuite dans votre code faire référence à l'objet config avec la 
 
 ## Proposition de Markup
 **Commentaires**
+```html
 <form>
-  <div className="form-group">
+  <div class="form-group">
     <label htmlFor="content">Ajouter un commentaire</label>
     <textarea
-        className="form-control"
+        class="form-control"
         name="content"
         id="content"
         cols="30"
         rows="2"
     />
   </div>
-  <button type="submit" className="btn btn-default">
+  <button type="submit" class="btn btn-default">
     Envoyer
   </button>
 </form>
 <div>
     <h4>Commentaires: </h4>
-    <div className="panel panel-default">
-      <div className="panel-body">
+    <div class="panel panel-default">
+      <div class="panel-body">
         <h6><small></small></h6>
         ...
       </div>
     </div>
 </div>
+```
