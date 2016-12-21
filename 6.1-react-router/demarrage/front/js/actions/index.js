@@ -19,7 +19,7 @@ export const COMMENT_INPUT = 'COMMENT_INPUT';
 
 export function fetchVideos(){
 	return (dispatch, getState) => {
-		request
+		return request
 		.get( `${config.apiPath}/videos` )
 		.then(
 			( response ) => {
