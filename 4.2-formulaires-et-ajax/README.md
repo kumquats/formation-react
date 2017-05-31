@@ -21,7 +21,7 @@ Vous pouvez ensuite dans votre code faire référence à l'objet config avec la 
 
 **Video :**
 - dans le composant **Video** enlever le mécanisme de changement de vidéo au clic sur le bouton. A l'affichage du composant appeler le webservice GET `config.apiPath + "/videos/:id"` (*NB: pour le moment mettre l'id en dur dans la classe) et mettre à jour le DOM une fois les données récupérées.
-- dans la **Video**, créer une méthode `fetchComments` qui appele le webservice GET `config.apiPath + "/videos/:id/comments"` une fois le déet afficher la liste des commentaires reçus en dessous de la vidéo.
+- dans la **Video**, créer une méthode `fetchComments` qui appele le webservice GET `config.apiPath + "/videos/:id/comments"` et afficher la liste des commentaires reçus en dessous de la vidéo.
 - au dessus des commentaires, créer un formulaire contenant :
     + un textarea
     + un input submit
@@ -45,7 +45,7 @@ Vous pouvez ensuite dans votre code faire référence à l'objet config avec la 
 ```html
 <form>
   <div class="form-group">
-    <label htmlFor="content">Ajouter un commentaire</label>
+    <label for="content">Ajouter un commentaire</label>
     <textarea
         class="form-control"
         name="content"

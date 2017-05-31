@@ -20,5 +20,6 @@ export function fetchVideo( videoId ) {
             .get(...)
 ```
 - Modifier les composants **VideoList** et **Video** afin de leur faire implémenter la méthode statique **fetchData**. *Attention: dans le cas du composant **Video** deux actions différentes sont appelées ([indice](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Promise/all)).*
+- builder le js de l'application
 - Lancer le serveur via la commande `node launch-server.js`
-- tester le site sur http://localhost:3333 (utiliser le view-source opur voir le pré-remplissage du DOM !)
+- tester le site sur http://localhost:3333 (utiliser le view-source pour voir le pré-remplissage du DOM !)
