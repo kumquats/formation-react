@@ -30,12 +30,12 @@ L'objectif de ce TP est de mettre en place un système de routing permettant de 
         * **history** => **browserHistory**
         * **routes** => le routing importé précédemment
     NB : si votre site se trouve dans un sous-dossier et pas à la racine de votre serveur web vous devrez indiquer au Router le chemin vers la racine de votre site. Pour cela ne pas utiliser `browserHistory` de react-router mais la fonction `useRouterHistory` comme suit :
-    ```javascript
+```javascript
 const browserHistory = useRouterHistory(createHistory)({
   basename: config.basePath // racine du site concaténé aux URLs du Router
 });
 const history = syncHistoryWithStore(browserHistory, store);
-    ```
+```
 - Créer un composant **"Menu"** dans le dossier **js/components**
     + Grâce au compostant **"Link"** de **"react-router"** créer les lien suivants:
         * Un lien vers la page d'accueil (**VideoList**)
