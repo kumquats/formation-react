@@ -13,7 +13,7 @@ L'objectif de ce TP est de mettre en place un système de routing permettant de 
 
 ## Instructions
 - importer le routerReducer dans le reducer de notre application
-- modifier le store de notre application pour ajouter le reouterMiddleware de react-router-redux comme middleware
+- modifier le store de notre application pour ajouter le routerMiddleware de react-router-redux comme middleware
 - Créer un composant **"App"** dans le dossier **"js/containers"**
     + Ce composant représentera le layout de l'application
     + Doit effectuer le rendu de **"this.props.children"** dans une **"div"**
