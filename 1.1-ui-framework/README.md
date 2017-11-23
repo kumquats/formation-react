@@ -34,10 +34,10 @@ npm install --save-dev babel-preset-es2015
 <br>Bien entendu, le code JS du fichier html n'est pas modifiable !*
 
 **1. Créer une classe `Component` qui représentera un composant graphique générique**
-- Le constructeur de la classe **Component** doit prendre 3 paramètres:
+- Le constructeur de la classe `Component` doit prendre 3 paramètres:
 	+ **tagName** (string): Le nom du tag HTML
 	+ **attributes** (objet): Liste des attributs HTML du composant
-	+ **children** (array): Liste des enfant du composant. Peut contenir d'autres instances de **Component** ou de simples string
+	+ **children** (array): Liste des enfant du composant. Peut contenir d'autres instances de `Component` ou de simples string
 - La classe devra implémenter les méthodes suivantes
 	+ **setAttribute(name, value)** : Permet de modifier/ajouter un attribut
 	+ **getAttribute(name)** : Permet de récupérer la valeur d'un attribut
@@ -55,4 +55,4 @@ npm install --save-dev babel-preset-es2015
 - Le constructeur de la classe doit prendre 2 paramètres:
 	+ **text** : Texte à afficher dans le bouton
 	+ **attributes** : Attributs du bouton
-- Par défaut cette classe doit afficher un 'button' HTML contenant le texte et les attributs définis dans le constructeur **ET** possédant des coins arrondis, une couleur de texte blanche et une couleur de fond rouge
+- Par défaut cette classe doit afficher un `<button>` HTML contenant le texte et les attributs définis dans le constructeur **ET** possédant des coins arrondis, une couleur de texte blanche et une couleur de fond rouge
