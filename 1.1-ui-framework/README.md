@@ -15,7 +15,7 @@ npm install --save-dev babel-cli babel-loader babel-core
 ```
 - Installer le preset `env` qui permettra de transpiler les features ES2015+
 ```bash
-npm install --save-dev babel-preset-es2015
+npm install --save-dev babel-preset-env
 ```
 - Puis créer un fichier `.babelrc` et configurer Babel avec le preset `env` :
 ```json
