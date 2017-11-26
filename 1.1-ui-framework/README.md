@@ -6,7 +6,7 @@ L'objectif de ce TP est de développer un mini framework UI capable de générer
 ## Préparatifs
 *Vos développements devront toujours être testés en utilisant le protocole `http`, il faut pour cela utiliser un serveur web (ouvrir le fichier en double-cliquant dessus l'ouvrira dans le navigateur mais avec le protocole `file://` ce qui peut poser des problèmes de rendu).*
 - Installer un serveur apache/php (sur windows [Apachefriends xampp](https://www.apachefriends.org/fr/index.html) ou [wampserver](http://www.wampserver.com/))
-- Dans l'arborescence du serveur apache (dossier www ou htdocs) créer un sous-dossier pour ce TP, c'est dans ce dossier que vous créerez vos fichiers html et css.
+- Dans l'arborescence du serveur apache (dossier www ou htdocs) créer un sous-dossier pour ce TP, et y placer le contenu du dossier `demarrage` de ce TP
 - Installer [NodeJS](https://nodejs.org/en/) (version *"Current"*)
 - Dans le dossier du projet, installer [Babel](https://babeljs.io/docs/setup/#installation)
 ```bash
@@ -29,7 +29,7 @@ npm install --save-dev babel-preset-es2015
 ```
 
 ## Instructions
-*Dans ce TP, le fichier index.html contient du code JavaScript qui utilise des classes qui n'existent pas, ce qui crée des erreurs dans la console.
+*Dans ce TP, le fichier index.html contient du code JavaScript qui utilise des classes qui n'existent pas, ce qui génère des erreurs dans la console.
 <br>Votre rôle sera de coder ces classes de manière à faire fonctionner le code du fichier html sans erreurs.
 <br>Bien entendu, le code JS du fichier html n'est pas modifiable !*
 

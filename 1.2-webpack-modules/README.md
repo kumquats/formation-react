@@ -10,14 +10,12 @@ L'objectif de ce TP est de mettre en place la base d'un projet utilisant le gest
 ```
 src/
   js/
-    app.js
   build/
 ```
 - Dans le dossier `src` initialiser le projet npm à l'aide de la commande :
 ```bash
 npm init
 ```
-- personnaliser le `package.json` ainsi généré (nom, auteur, ...)
 - Installer les paquets NPM suivants avec l'option --save-dev:
     + babel-core
     + babel-loader
@@ -30,28 +28,30 @@ npm init
     "build": "webpack"
 },
 ```
-```bash
-npm run build
-```
 
 
 ## Instructions
-1. A la racine du projet, créer un fichier `webpack.config.js`
-2. Définissez le fichier d'entrée à `js/app.js`
-3. Faites en sorte que le fichier de sortie soit situé dans `build/app.bundle.js`
-4. Faites en sorte que les fichiers `.js` soient compilés via `babel-loader` tout en excluant le dossier `node_modules`
-6. Dans le fichier `app.js` :
-- Créer une fonction **"helloWorld()"** permettant d'afficher le message '**Hello world !**' dans la console
-- Exportez la fonction
-7. Créer un fichier **app.js** dans un dossier **js** à la racine du projet
-    + Importer le module 'helloWorld' créé précédemment
+1. Dans le dossier `src`, créer un fichier `webpack.config.js` et configurer webpack :
+	- Définissez le fichier d'entrée à `./js/app.js`
+	- Configurez le fichier de sortie dans `build/app.bundle.js`, vous aurez pour cela besoin du module `path` dont vous trouverez un exemple d'utilisation dans la [documentation de webpack](https://webpack.js.org/concepts/#output)
+	- Faites en sorte que les fichiers `.js` soient compilés via `babel-loader` tout en excluant le dossier `node_modules`. L'exemple se trouve dans le support mais la documentation des différents loaders de webpack est [disponible ici](https://webpack.js.org/loaders/)
+2. Créer un premier module `helloWorld.js` dans le dossier `js` :
+	- y placer une fonction **"helloWorld()"** qui affiche dans la console le message  '**Hello world !**'
+	- Penser à exportez la fonction pour la rendre disponible aux autres modules
+3. Créer un fichier `app.js` dans le dossier `js` :
+    + Importer le module `helloWorld` créé précédemment
     + Appeler la méthode retournée par ce module
-8. Exécuter la commande `npm run build`
-9. Créer un fichier index.html avec la structure HTML de base
-    + Inclure le fichier './build/app.bundle.js' dans la page
-10. ajouter la gestion des source-maps
-11. minifier et obfusquer le code généré
+4. Lancer la compilation avec webpack grâce à la commande "build" configurée dans le `package.json`
+```bash
+npm run build
+```
+5. Créer un fichier `index.html` dans le dossier `src`
+	+ Y inclure une structure html de base
+    + Inclure le fichier `./build/app.bundle.js` dans la page
+	+ Tester la page `index.html` dans le navigateur et vérifier que la fonction helloWorld() affiche bien un message dans la console
+6. Configurer webpack pour générer des fichiers source-maps
+7. Minifier et obfusquer le code généré
 
 ## Pour aller plus loin
-- adapter le tp précédent (ui-framework) pour utiliser les modules
+- Adapter le tp précédent (ui-framework) en utilisant les modules
 
