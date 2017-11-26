@@ -15,11 +15,19 @@ L'objectif de ce TP est de mettre en place les bases d'une application similaire
 - Installer les paquets NPM suivants avec l'option `--save-dev` :
     + babel-preset-react
 - Ajouter le preset **'react'** dans le fichier `.babelrc`
-- Modifier le fichier `src/webpack.config.js` afin que le fichier de sortie soit écrit dans le dossier `site/web`
+- Modifier le fichier `src/webpack.config.js` afin que le fichier de sortie soit écrit dans le dossier `site/web/js` et désactiver (commenter) la minification du JS pour gagner en rapidité de build
+- ajouter au `package.json` un script permettant de lancer un "watch" (mécanisme qui tourne en tâche de fond et qui recompile automatiquement dès qu'une modification sur un fichier survient) :
+```js
+"scripts": {
+	"build": "webpack",
+	"watch": "webpack -d --watch"
+},
+```
 - Supprimer les fichiers devenus inutiles :
 	+ `src/js/helloWorld.js`
 	+ `src/index.html`
 	+ et le dossier `src/build`
+-
 
 ## Instructions
 1. modifier le fichier **"src/js/app.js"** pour initialiser une application React contenant un composant unique **Video**
