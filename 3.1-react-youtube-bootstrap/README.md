@@ -5,39 +5,51 @@
 L'objectif de ce TP est de mettre en place les bases d'une application similaire à Youtube.
 
 ## Préparatifs
-- récupérer le contenu du dossier 'demarrage' du TP et placer les fichiers dans un dossier de votre arborescence web (*ex: c:\wamp\www\3.1-react-youtube-bootstrap\\*) (*vous pouvez également repartir des fichiers de votre tp précédent, dans ce cas ne récupérez que le dossier `demarrage/back` et placez le à côté du dossier `front`*)
-- dans le dossier 'back' coller le dossier 'vendor' (fourni par le formateur)
-- Executez le script SQL `back/schema.sql` (dans phpmyadmin ou en ligne de commande mysql) afin de mettre en place la base de données
-- dans le dossier 'front' renommer le projet dans le `package.json` en 'react_youtube'
-- dans le dossier 'front' lancer la commande `npm install`
-- dans le dossier 'front' installer les packets NPM suivants avec l'option --save:
+- Récupérer le contenu du dossier 'demarrage' du TP et placer les fichiers dans un dossier de votre arborescence web (*ex: c:\wamp\www\3.1-react-youtube-bootstrap\\*) (*vous pouvez également repartir des fichiers de votre tp précédent, dans ce cas ne récupérez que le dossier `demarrage/site` et placez le à côté du dossier `src`*)
+- Dans le dossier 'site' coller le dossier 'vendor' (fourni par le formateur)
+- Exécutez le script SQL `site/schema.sql` (dans phpmyadmin ou en ligne de commande mysql) afin de mettre en place la base de données
+- Dans le dossier 'src' lancer la commande `npm install` pour récupérer les dépendances du projet (babel, webpack)
+- Dans le dossier 'src' installer les packets NPM suivants avec l'option `--save` :
     + react
     + react-dom
-- Installer les paquets NPM suivants avec l'option --save-dev:
+- Installer les paquets NPM suivants avec l'option `--save-dev` :
     + babel-preset-react
-- Ajouter le preset **'react'** dans le fichier .babelrc
-- Modifier le fichier **'front/webpack.config.js'** afin que le fichier de sortie soit écrit dans le dossier **'back/web'**
-- Supprimer les fichiers **'front/js/helloWorld.js'**, **'front/index.html'** et le dossier **"front/build"**
+- Ajouter le preset **'react'** dans le fichier `.babelrc`
+- Modifier le fichier `src/webpack.config.js` afin que le fichier de sortie soit écrit dans le dossier `site/web`
+- Supprimer les fichiers devenus inutiles :
+	+ `src/js/helloWorld.js`
+	+ `src/index.html`
+	+ et le dossier `src/build`
 
 ## Instructions
-- modifier le fichier **"front/js/app.js"** pour initialiser une application React contenant un composant unique **Video**
-- Créer le composant **"Video"** dans le dossier **front/js**. Ce composant :
-    + dispose par défaut d'un state **"video"** de la forme `{id: Integer, title: String, description: String, file: String }`
-    + doit afficher le titre & la description de la vidéo
-    + doit afficher une balise video ayant pour source la propriété **"file"** du state **"video"**
-- tester l'application sur `http://<votre-url-projet>/back/web`
-- Créer un composant **"VideoList"** et modifier l'application pour afficher ce composant à la place de **"Video"**. Ce composant :
+1. modifier le fichier **"src/js/app.js"** pour initialiser une application React contenant un composant unique **Video**
+2. Créer le composant **"Video"** dans le dossier **src/js**. Ce composant :
+    + dispose d'un state **"video"** de la forme :
+	```js
+	{
+		id: Integer,
+		title: String,
+		description: String,
+		file: String
+	}
+	```
+    + doit afficher le titre & la description de la vidéo contenue dans son state (cf. [Proposition de DOM](#proposition-de-dom))
+    + doit afficher une balise video dont la source correspond à la propriété **"file"** du state **"video"**
+
+3. Tester l'application sur `http://<votre-url-projet>/site/web`
+4. Créer un composant **"VideoList"** et modifier l'application pour afficher ce composant à la place de **"Video"**. Ce composant :
     + affiche une liste de vidéos qui se trouve dans son state **"videos"**
     + chaque vidéo de la liste est représentée par son titre et une vignette (en manque d'inspiration ? Jetez un oeil à http://lorempixel.com/)
 
 
 ## Pour aller plus loin
-Quelques optimisations :
+Quelques optimisations pour le composant **Video** :
 - Dans le composant **"Video"** le champ description devient facultatif, ne pas l'afficher s'il n'y en a pas dans le state.
-- Toutes les 2 secondes, la vidéo affichée dans le composant **"Video"** doit changer pour afficher la vidéo suivante de la VideoList (externaliser la liste des vidéos dans un fichier js distinct **"videos.js"** et importé dans chaque composant) 
+- Toutes les 2 secondes, la vidéo affichée dans le composant **"Video"** doit changer pour afficher la vidéo suivante de la VideoList (externaliser la liste des vidéos dans un fichier js distinct **"videos.js"** et importé dans chaque composant)
 - Dans le composant **"Video"** ne pas re-rendre la vidéo si la vidéo n'a pas changé lors du changement aléatoire.
-- toutes les X secondes, ajouter une nouvelle vidéo en haut de la **"VideoList"**
-- à l'apparition de chaque nouvelle vidéo, l'afficher de manière animée avec une transition CSS cf. https://facebook.github.io/react/docs/animation.html
+
+Pour la **VideoList** :
+- Toutes les X secondes, ajouter une nouvelle vidéo en haut de la **"VideoList"**
 
 ## Proposition de DOM
 
