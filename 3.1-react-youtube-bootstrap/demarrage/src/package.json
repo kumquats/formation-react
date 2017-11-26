@@ -1,0 +1,17 @@
+{
+	"name": "reactube",
+	"version": "1.0.0",
+	"description": "TP de la formation React",
+	"main": "index.js",
+	"scripts": {
+		"build": "webpack"
+	},
+	"author": "kumquats.fr",
+	"license": "ISC",
+	"devDependencies": {
+		"babel-core": "^6.26.0",
+		"babel-loader": "^7.1.2",
+		"babel-preset-env": "^1.6.1",
+		"webpack": "^3.8.1"
+	}
+}
