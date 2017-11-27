@@ -16,4 +16,4 @@ Travailler sur plusieurs aspects du chapitre "Interactivité des composants" :
 
 ## Pour aller plus loin
 - Faire de VideoItem un composant stateless
-- Vérifier que le **VideoItem** reçoit bien une video
+- Vérifier que le **VideoItem** reçoit bien une video à l'aide des PropTypes
