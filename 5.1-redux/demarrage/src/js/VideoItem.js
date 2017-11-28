@@ -20,7 +20,7 @@ const VideoItem = props => (
 VideoItem.propTypes = {
 	// La prop color doit être une string
 	video: PropTypes.shape({
-		id: PropTypes.number.isRequired,
+		id: PropTypes.string.isRequired,
 		title: PropTypes.string,
 		description: PropTypes.string,
 	}).isRequired
