@@ -11,9 +11,9 @@ Travailler sur plusieurs aspects du chapitre "Interactivité des composants" :
 
 ## Instructions
 1. Dans le composant **VideoList** utiliser un sous-composant **VideoItem** pour le rendu de chaque vidéo
-2. Dans le composant **Video** ajouter un bouton qui permet de changer de vidéo (passe à la vidéo suivante de la liste)
-3. Lancer automatiquement la lecture de la vidéo lorsqu'on arrive sur la page **Video** ou qu'on change de vidéo.
+2. Faire de VideoItem un composant stateless
 
 ## Pour aller plus loin
-- Faire de VideoItem un composant stateless
+- Dans le composant **Video** ajouter un bouton qui permet de changer de vidéo (passe à la vidéo suivante de la liste)
+- Lancer automatiquement la lecture de la vidéo lorsqu'on arrive sur la page **Video** ou qu'on change de vidéo.
 - Vérifier que le **VideoItem** reçoit bien une video à l'aide des PropTypes
