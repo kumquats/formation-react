@@ -1,0 +1,10 @@
+.comment-enter {
+  opacity: 0.01;
+}
+
+.comment-enter.comment-enter-active {
+  opacity: 1;
+  transition: opacity 250ms ease-in;
+  -webkit-transition: opacity 250ms ease-in;
+  -moz-transition: opacity 250ms ease-in;
+}
