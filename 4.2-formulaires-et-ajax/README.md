@@ -13,6 +13,7 @@ externals: {
 	'config': 'config',
 },
   ```
+
 Vous pouvez ensuite dans votre code faire référence à l'objet config avec la ligne `import config from 'config';`
 
 ## Instructions
