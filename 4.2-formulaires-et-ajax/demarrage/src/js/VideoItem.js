@@ -22,8 +22,8 @@ VideoItem.propTypes = {
 	video: PropTypes.shape({
 		id: PropTypes.number.isRequired,
 		title: PropTypes.string,
-		video: PropTypes.string,
-		}).isRequired
+		description: PropTypes.string,
+	}).isRequired
 }
 
 export default VideoItem;
