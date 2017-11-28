@@ -8,13 +8,14 @@ Connecter l'application à des webservices et utiliser les formulaires avec Reac
     + superagent
 - consulter la [documentation de SuperAgent](http://visionmedia.github.com/superagent/) et le [github de SuperAgent](https://github.com/visionmedia/superagent)
 - si vous inspectez le code de la page html générée par le serveur, vous constaterez une balise `<script>` contenant un objet `config` généré par PHP et contenant des chemins qui seront utiles pour le développement. Pour pouvoir utiliser cette variable, ajouter la configuration suivante au **"webpack.config.js"**
-  ```
+```
 externals: {
 	'config': 'config',
 },
-  ```
+```
 
 Vous pouvez ensuite dans votre code faire référence à l'objet config avec la ligne `import config from 'config';`
+
 
 ## Instructions
 - Dans **VideoList** remplacer l'utilisation des videos en dur par des données dynamiques : faire un appel GET vers le webservice `config.apiPath+"/videos"` pour récupérer la liste des vidéos depuis la base de données.
