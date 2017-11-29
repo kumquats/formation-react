@@ -14,7 +14,7 @@ import configureStore from './store/configureStore';
 //
 // Pour pouvoir utiliser les Redux Devtools la syntaxe,
 // plus complexe est externalisée dans un module configureStore
-const store = configureStore( window.__PRELOADED_STATE__ || {} );
+const store = configureStore();
 
 ReactDOM.render(
     <Provider store={store}>

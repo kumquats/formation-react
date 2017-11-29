@@ -5,7 +5,7 @@ import reducer from '../reducers';
 
 
 
-export default function configureStore(preloadedState) {
+export default function configureStore() {
 
 	// On récupère la fonction composeEnhancers de l'extension
 	// chrome si elle existe sinon on utiliser la fonction
