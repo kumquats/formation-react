@@ -1,27 +1,30 @@
 import React from 'react';
-import request from 'superagent';
-import config from 'config';
-import VideoItem from './VideoItem';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import VideoItem from '../components/VideoItem';
+import { fetchVideos } from '../actions';
+
+// Dans cette fonction on récupère le state en paramètre
+function mapStateToProps( state )
+{
+	return { videos: state.videos };
+}
+// Dans cette fonction on récupère la méthode dispatch du store
+function mapDispatchToProps( dispatch )
+{
+    // on associe this.props.fetchVideos avec l'action creator fetchVideos
+    // return {
+    //     fetchVideos: () => dispatch( fetchVideos() )
+    // };
+    // peut se simplifier avec la méthode bindActionCreators
+    return bindActionCreators( {fetchVideos}, dispatch );
+}
 
 class VideoList extends React.Component {
 
-	constructor(){
-		super();
-		this.state = {
-			videos: []
-		}
-	}
-
 	componentWillMount(){
-		request
-			.get( `${config.apiPath}/videos` )
-			.then(
-				( response ) => {
-					this.setState( { videos: response.body } );
-				}
-			)
+		this.props.fetchVideos();
 	}
-
 
 	render () {
 		return (
@@ -36,13 +39,10 @@ class VideoList extends React.Component {
 	}
 
 	renderVideos() {
-		return this.state.videos.map( ( video ) => {
-			return (
-				<VideoItem key={video.id} video={video} />
-			);
+		return this.props.videos.map( ( video ) => {
+			return <VideoItem key={video.id} video={video} />
 		});
 	}
-
 }
 
-export default VideoList;
+export default connect(mapStateToProps, mapDispatchToProps)( VideoList );

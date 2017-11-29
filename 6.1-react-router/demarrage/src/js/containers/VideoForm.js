@@ -1,15 +1,20 @@
 import React from 'react';
-import request from 'superagent';
-import config from 'config';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { postVideo } from '../actions';
 
+function mapStateToProps( state )
+{
+	return { isLoading: state.newVideo.isLoading };
+}
+function mapDispatchToProps( dispatch )
+{
+    return bindActionCreators( {postVideo}, dispatch );
+}
 
 class VideoForm extends React.Component {
-
-	constructor(){
-		super();
-		this.state = {
-			isLoading: false,
-		}
+	constructor( props ) {
+		super( props );
 		this.handleSubmit = this.handleSubmit.bind( this );
 	}
 
@@ -44,8 +49,8 @@ class VideoForm extends React.Component {
 					id="file"
 					ref={el => this.fileInput = el} />
 			  </div>
-				<button type="submit" className="btn btn-default" disabled={this.state.isLoading}>
-				  {!this.state.isLoading ? 'Ajouter' : 'Enregistrement...'}
+				<button type="submit" className="btn btn-default" disabled={this.props.isLoading}>
+				  {!this.props.isLoading ? 'Ajouter' : 'Enregistrement...'}
 				</button>
 			</form>
 		);
@@ -53,19 +58,14 @@ class VideoForm extends React.Component {
 
 	handleSubmit( event ) {
 		event.preventDefault();
-		this.setState({isLoading: true});
-		request
-			.post( `${config.apiPath}/videos` )
-			.field('title', this.titleInput.value)
-			.field('description', this.descriptionInput.value)
-			.attach('file', this.fileInput.files[0])
-			.then(
-				( response ) => {
-					this.setState({isLoading: false});
-				}
-			);
+		const video = {
+			title: this.titleInput.value,
+			description: this.descriptionInput.value,
+			file: this.fileInput.files[0],
+		};
+		this.props.postVideo(video);
 	}
 
 }
 
-export default VideoForm;
+export default connect( mapStateToProps, mapDispatchToProps )( VideoForm );
