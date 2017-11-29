@@ -38,10 +38,10 @@ npm install --save-dev redux-logger
 
 1. Créer un fichier `reducers/index.js` et y coder le state par défaut de l'application :
 	+ Créer une constante `defaultState`
-	+ lui affecter comme valeur un objet avec une propriété `videos` qui remplacera le state de la **VideoList**. Nous reviendrons à ce fichier plus tard pour coder le reducer en lui même.
+	+ lui affecter comme valeur un objet avec une propriété `videos` qui remplacera le state de la **VideoList**.
 	+ exporter une fonction anonyme qui prend en paramètre
-		o un objet `state` avec comme valeur par défaut la constante `defaultState`,
-		o et un objet `action` qui correspondra à l'action dispatchée par l'action creator
+		* un objet `state` avec comme valeur par défaut la constante `defaultState`,
+		* et un objet `action` qui correspondra à l'action dispatchée par l'action creator
 	+ cette fonction retournera le state reçu en paramètre sans lui appliquer de modifications (pour l'instant !)
 
 2. Connecter **VideoList** au store :
@@ -59,8 +59,8 @@ npm install --save-dev redux-logger
 	+ lancer un appel ajax avec superagent vers le webservice `api/videos`
 	+ notifier le store (à l'aide de la fonction `dispatch()`) de la réception des données une fois l'appel ajax terminé.
 	+ l'action générée (dispatchée) aura 2 propriétés :
-		o une propriété `type` qui vaudra 'VIDEO_LIST_COMPLETE' (préférez l'utilisation d'une constante, qui aura l'avantage de pouvoir être réutilisée dans le reducer)
-		o une propriété `videos` qui aura comme valeur le tableau retourné par le webservice.
+		* une propriété `type` qui vaudra 'VIDEO_LIST_COMPLETE' (préférez l'utilisation d'une constante, qui aura l'avantage de pouvoir être réutilisée dans le reducer)
+		* une propriété `videos` qui aura comme valeur le tableau retourné par le webservice.
 
 6. Pour que l'action creator puisse faire des dispatch asynchrone, il faut que le store soit initialisé avec le middleware `redux-thunk`
 
