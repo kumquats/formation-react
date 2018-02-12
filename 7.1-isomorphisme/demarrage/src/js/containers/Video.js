@@ -1,8 +1,8 @@
 import React from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchVideo, fetchComments, postComment, updateCommentInput } from '../actions';
+import config from 'config';
 
 function mapStateToProps( state )
 {
@@ -33,8 +33,8 @@ class Video extends React.Component {
 	}
 
 	componentWillMount(){
-		this.props.fetchVideo(this.id);
-		this.props.fetchComments(this.id);
+		this.props.fetchVideo(this.props.params.id);
+		this.props.fetchComments(this.props.params.id);
 	}
 
 	componentDidUpdate(prevProps, prevState){
@@ -60,7 +60,10 @@ class Video extends React.Component {
 								ref={el => this.video = el}
 								height="300"
 								controls
-								src={this.props.video && './uploads/' + this.props.video.file}
+								src={
+									this.props.video &&
+									config.basePath + '/uploads/' + this.props.video.file
+								}
 							>
 							</video>
 							<h3>{this.props.video ? this.props.video.title : 'Chargement en cours'}</h3>
@@ -87,15 +90,7 @@ class Video extends React.Component {
 						</form>
 						<div>
 							<h4>Commentaires: </h4>
-							<ReactCSSTransitionGroup
-								transitionName="comment"
-								transitionAppear={true}
-								transitionAppearTimeout={500}
-								transitionEnterTimeout={0}
-								transitionLeaveTimeout={0}
-							>
-								{ this.renderComments() }
-							</ReactCSSTransitionGroup>
+							{ this.renderComments() }
 						</div>
 					</div>
 				</div>

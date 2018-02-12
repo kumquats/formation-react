@@ -1,6 +1,6 @@
 import { applyMiddleware, createStore, compose } from 'redux';
 import thunk from 'redux-thunk';
-import createLogger from 'redux-logger';
+import {createLogger} from 'redux-logger';
 import { routerMiddleware } from 'react-router-redux';
 import { browserHistory } from 'react-router';
 
@@ -8,7 +8,7 @@ import reducer from '../reducers';
 
 
 
-export default function configureStore(preloadedState) {
+export default function configureStore( preloadedState ) {
 
 	// On récupère la fonction composeEnhancers de l'extension
 	// chrome si elle existe sinon on utiliser la fonction
