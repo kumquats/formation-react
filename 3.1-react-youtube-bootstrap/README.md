@@ -100,7 +100,7 @@ Pour la **VideoList** :
             <li class="media">
                 <div class="media-left">
                     <img class="media-object"
-                        alt="cat" src='http://lorempixel.com/120/70/cats/?r=0.1267489'
+                        alt="cat" src='https://loremflickr.com/320/240/cat?r=0.1267489'
                         width="120"
                         height="70" />
                 </div>
