@@ -1,0 +1,5 @@
+{
+	"basePath": "http://localhost:3333",
+	"apiPath": "http://localhost/7.1-isomorphisme/corrige/site/web/api",
+	"videoPath": "http://localhost/7.1-isomorphisme/corrige/site/web/uploads"
+}

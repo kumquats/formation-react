@@ -91,7 +91,7 @@ app.get(/^(?!\/public)\/.*/, (req, res, next) => {
 
 // On crée une route pour les fichiers statiques
 // (js,css,images, etc...)
-app.use('/public', express.static('./../back/web'));
+app.use('/public', express.static('./../site/web'));
 
 // On lance le serveur et on écoute le port 3333
 app.listen(3333, function () {

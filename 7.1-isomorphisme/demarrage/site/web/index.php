@@ -3,6 +3,7 @@
 require_once __DIR__.'/../vendor/autoload.php';
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 $app = new Silex\Application();
 
@@ -27,7 +28,6 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 
 $app->get('/', function () use ($app) {
-    //var_dump($app);die();
     return $app['twig']->render('index.html.twig', array());
 });
 $app->get('/videos', function () use ($app) {
@@ -96,6 +96,10 @@ $app->post('/api/videos/{id}/dislikes', function ($id) use ($app) {
         return $app->json(1);
     }
     return $app->json(0, 400);
+});
+
+$app->after(function (Request $request, Response $response) {
+    $response->headers->set('Access-Control-Allow-Origin', '*');
 });
 
 $app->run();
