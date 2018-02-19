@@ -5428,20 +5428,20 @@ var _configureStore2 = _interopRequireDefault(_configureStore);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// On crée un historique synchronisé avec le store
+// (browserHistory = Historique basé sur l'URL du navigateur)
+
+
+// On importe les routes de l'application
+var browserHistory = (0, _reactRouter.useRouterHistory)(_history.createHistory)({
+    basename: _config2.default.basePath // racine du site concaténé aux URLs du Router
+});
 // On crée le store en lui fournissant le "reducer"
 // const store = createStore( reducer );
 //
 // Pour pouvoir utiliser les Redux Devtools la syntaxe,
 // plus complexe est externalisée dans un module configureStore
-
-
-// On importe les routes de l'application
-var store = (0, _configureStore2.default)(window.__PRELOADED_STATE__ || {});
-// On crée un historique synchronisé avec le store
-// (browserHistory = Historique basé sur l'URL du navigateur)
-var browserHistory = (0, _reactRouter.useRouterHistory)(_history.createHistory)({
-    basename: _config2.default.basePath // racine du site concaténé aux URLs du Router
-});
+var store = (0, _configureStore2.default)(browserHistory, window.__PRELOADED_STATE__ || {});
 var history = (0, _reactRouterRedux.syncHistoryWithStore)(browserHistory, store);
 
 // A la place du composant principal on utilise
@@ -27974,6 +27974,11 @@ var VideoList = function (_React$Component) {
 				return _react2.default.createElement(_VideoItem2.default, { key: video.id, video: video });
 			});
 		}
+	}], [{
+		key: 'fetchData',
+		value: function fetchData(store, params, query) {
+			return store.dispatch((0, _actions.fetchVideos)());
+		}
 	}]);
 
 	return VideoList;
@@ -30142,6 +30147,13 @@ function mapDispatchToProps(dispatch) {
 var Video = function (_React$Component) {
 	_inherits(Video, _React$Component);
 
+	_createClass(Video, null, [{
+		key: 'fetchData',
+		value: function fetchData(store, params, query) {
+			return Promise.all([store.dispatch((0, _actions.fetchVideo)(params.id)), store.dispatch((0, _actions.fetchComments)(params.id))]);
+		}
+	}]);
+
 	function Video() {
 		_classCallCheck(this, Video);
 
@@ -30615,7 +30627,7 @@ var _reducers2 = _interopRequireDefault(_reducers);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function configureStore(preloadedState) {
+function configureStore(browserHistory, preloadedState) {
 
 	// On récupère la fonction composeEnhancers de l'extension
 	// chrome si elle existe sinon on utiliser la fonction
@@ -30631,7 +30643,7 @@ function configureStore(preloadedState) {
 	// les action creators de react-router-redux
 	// permettant à nos vues de lancer des actions
 	// de navigation.
-	(0, _reactRouterRedux.routerMiddleware)(_reactRouter.browserHistory))));
+	(0, _reactRouterRedux.routerMiddleware)(browserHistory))));
 	return store;
 }
 

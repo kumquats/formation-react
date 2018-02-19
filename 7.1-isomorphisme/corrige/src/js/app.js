@@ -11,17 +11,17 @@ import config from 'config';
 import reducer from "./reducers";
 import configureStore from './store/configureStore';
 
-// On crée le store en lui fournissant le "reducer"
-// const store = createStore( reducer );
-//
-// Pour pouvoir utiliser les Redux Devtools la syntaxe,
-// plus complexe est externalisée dans un module configureStore
-const store = configureStore( window.__PRELOADED_STATE__ || {} );
 // On crée un historique synchronisé avec le store
 // (browserHistory = Historique basé sur l'URL du navigateur)
 const browserHistory = useRouterHistory(createHistory)({
   basename: config.basePath // racine du site concaténé aux URLs du Router
 });
+// On crée le store en lui fournissant le "reducer"
+// const store = createStore( reducer );
+//
+// Pour pouvoir utiliser les Redux Devtools la syntaxe,
+// plus complexe est externalisée dans un module configureStore
+const store = configureStore( browserHistory, window.__PRELOADED_STATE__ || {} );
 const history = syncHistoryWithStore(browserHistory, store);
 
 
