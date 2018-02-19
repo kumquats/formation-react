@@ -1,8 +1,9 @@
 # Setup d'un environnement de développement pour React
 
 ## Instructions
-- Installer [Visual Studio Code](https://code.visualstudio.com/) (éditeur opensource et compatible Windows, Mac, Linux, développé par Microsoft)
-- De base, VSCode supporte la coloration syntaxique et l'auto-complétion JavaScript et ES6+, mais aussi les imports automatiques de modules, l'affichage des erreurs de code, Git, etc. Mais vous pouvez installer en complément les extensions suivantes (CTRL+SHIFT+x) :
+- Installer [Visual Studio Code](https://code.visualstudio.com/) (éditeur opensource et compatible Windows, Mac, Linux, développé par Microsoft).
+- De base, VSCode supporte la coloration syntaxique et l'auto-complétion JavaScript et ES6+, mais aussi les imports automatiques de modules, l'affichage des erreurs de code, Git, etc. Pour plus de précisions sur le support de JavaScript consulter https://code.visualstudio.com/Docs/languages/javascript
+- Installer les extensions suivantes (CTRL+SHIFT+x) :
 	+ Path Intellisense
 	+ Git History
 	+ Import Cost
