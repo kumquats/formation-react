@@ -37,6 +37,7 @@ npm install --save react-router-redux
         * **routes**
     NB : si votre site se trouve dans un sous-dossier et pas à la racine de votre serveur web vous devrez indiquer au Router le chemin vers la racine de votre site. Pour cela ne pas utiliser le `browserHistory` de react-router mais la fonction `useRouterHistory` comme suit :
 ```javascript
+import { createHistory } from 'history';
 const browserHistory = useRouterHistory(createHistory)({
   basename: config.basePath // racine du site qui sera concaténée aux URLs du Router
 });
