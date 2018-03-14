@@ -42,14 +42,14 @@ const browserHistory = useRouterHistory(createHistory)({
 });
 const history = syncHistoryWithStore(browserHistory, store);
 ```
-6. Créer un composant **"Menu"** dans le dossier **js/components**
+6. Modifier le composant **"VideoItem"** pour permettre à l'utilisateur, lorsqu'il clique sur un VideoItem, d'afficher la page détail de la vidéo associée grâce au compostant `<Link>` de **"react-router"**
+
+## Pour aller plus loin
+- Créer un composant **"Menu"** dans le dossier **js/components**
     + Dans la méthode `render()`, retourner deux liens grâce au compostant `<Link>` de **"react-router"** :
         * Un lien vers la page d'accueil (**VideoList**)
         * Un lien vers la page de création de vidéo (**VideoForm**)
     + Afficher ce composant dans le composant **"App"** juste avant **"this.props.children"**
-
-## Pour aller plus loin
-- Modifier le composant **"VideoItem"** afin d'afficher un lien vers la page détail de la vidéo associée
 - Modifier le composant **VideoForm** afin d'effectuer une redirection vers la page détail de la vidéo lorsqu'elle a été créée
 
 ## Proposition de markup
