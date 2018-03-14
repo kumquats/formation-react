@@ -18,6 +18,8 @@ export default function configureStore( browserHistory, preloadedState ) {
 	const logger = createLogger();
 	const store = createStore(
 	  reducer,
+	  // on passe le state calculé côté server
+	  preloadedState,
 	  // On enrobe le applyMiddleware avec
 	  // le composeEnhancers de redux-devtools
 	  composeEnhancers(

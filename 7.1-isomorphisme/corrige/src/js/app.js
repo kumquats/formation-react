@@ -21,6 +21,7 @@ const browserHistory = useRouterHistory(createHistory)({
 //
 // Pour pouvoir utiliser les Redux Devtools la syntaxe,
 // plus complexe est externalisée dans un module configureStore
+// On passe également le state par défaut calculé côté serveur par node
 const store = configureStore( browserHistory, window.__PRELOADED_STATE__ || {} );
 const history = syncHistoryWithStore(browserHistory, store);
 

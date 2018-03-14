@@ -18,9 +18,13 @@ import config from 'config';
 
 var app = express();
 
-// On intercepte toutes les requêtes
-// qui ne commencent pas par /public
-app.get(/^(?!\/public)\/.*/, (req, res, next) => {
+// On crée une route pour les fichiers statiques
+// (js,css,images, etc...)
+app.use('/public', express.static('./../site/web'));
+app.use('/uploads', express.static('./../site/web/uploads'));
+
+// On intercepte toutes les autres requêtes
+app.get(/^\/.*/, (req, res, next) => {
 
   // On crée un store spécifique pour le rendu serveur
   const memoryHistory = createMemoryHistory(req.originalUrl);
@@ -88,10 +92,6 @@ app.get(/^(?!\/public)\/.*/, (req, res, next) => {
         }
     })
 });
-
-// On crée une route pour les fichiers statiques
-// (js,css,images, etc...)
-app.use('/public', express.static('./../site/web'));
 
 // On lance le serveur et on écoute le port 3333
 app.listen(3333, function () {

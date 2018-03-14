@@ -24,7 +24,7 @@ export default function( html = '', preloadedState = {} ) {
             </script>
 		    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		    <script src="/public/js/bootstrap.min.js" charset="utf-8"></script>
-            <script type="text/javascript" src="/public/app.bundle.js">
+            <script type="text/javascript" src="/public/js/app.bundle.js">
             </script>
         </body>
         </html>`;

@@ -5441,6 +5441,7 @@ var browserHistory = (0, _reactRouter.useRouterHistory)(_history.createHistory)(
 //
 // Pour pouvoir utiliser les Redux Devtools la syntaxe,
 // plus complexe est externalisée dans un module configureStore
+// On passe également le state par défaut calculé côté serveur par node
 var store = (0, _configureStore2.default)(browserHistory, window.__PRELOADED_STATE__ || {});
 var history = (0, _reactRouterRedux.syncHistoryWithStore)(browserHistory, store);
 
@@ -28020,7 +28021,7 @@ var VideoItem = function VideoItem(props) {
 				'div',
 				{ className: 'media-left' },
 				_react2.default.createElement('img', { className: 'media-object',
-					alt: 'cat', src: 'https://loremflickr.com/320/240/cat?r=' + Math.random(),
+					alt: 'cat', src: 'https://loremflickr.com/320/240/cat?r=' + props.video.id,
 					width: '120',
 					height: '70' })
 			),
@@ -30636,6 +30637,8 @@ function configureStore(browserHistory, preloadedState) {
 
 	var logger = (0, _reduxLogger.createLogger)();
 	var store = (0, _redux.createStore)(_reducers2.default,
+	// on passe le state calculé côté server
+	preloadedState,
 	// On enrobe le applyMiddleware avec
 	// le composeEnhancers de redux-devtools
 	composeEnhancers((0, _redux.applyMiddleware)(_reduxThunk2.default, logger,
