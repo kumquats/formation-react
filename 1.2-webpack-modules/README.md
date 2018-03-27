@@ -21,6 +21,7 @@ npm init
     + babel-loader
     + babel-preset-env
     + webpack
+    + webpack-cli
 - configurer Babel à l'aide d'un fichier `.babelrc`
 - ajouter un script dans le fichier `package.json` qui permettra de lancer plus facilement webpack :
 ```json
@@ -39,18 +40,18 @@ npm init
 	- y placer une fonction **"helloWorld()"** qui affiche dans la console le message  '**Hello world !**'
 	- Penser à exportez la fonction pour la rendre disponible aux autres modules
 3. Créer un fichier `app.js` dans le dossier `js` :
-    + Importer le module `helloWorld` créé précédemment
-    + Appeler la méthode retournée par ce module
+    - Importer le module `helloWorld` créé précédemment
+    - Appeler la méthode retournée par ce module
 4. Lancer la compilation avec webpack grâce à la commande "build" configurée dans le `package.json`
-```bash
-npm run build
-```
+	```bash
+	npm run build
+	```
 5. Créer un fichier `index.html` dans le dossier `src`
 	+ Y inclure une structure html de base
     + Inclure le fichier `./build/app.bundle.js` dans la page
 	+ Tester la page `index.html` dans le navigateur et vérifier que la fonction helloWorld() affiche bien un message dans la console
 6. Configurer webpack pour générer des fichiers source-maps
-7. Minifier et obfusquer le code généré
+7. Passer du mode "production" au mode "development" (cf. https://webpack.js.org/concepts/mode/) et constater la différence sur le fichier `app.bundle.js`
 
 ## Pour aller plus loin
 - Adapter le tp précédent (ui-framework) en utilisant les modules
