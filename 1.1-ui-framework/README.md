@@ -27,6 +27,7 @@ npm install --save-dev babel-preset-env
 ```bash
 .\node_modules\.bin\babel js -d build --watch --source-maps
 ```
+- Si ce n'est pas déjà le cas, je vous invite à vous familiariser avec les outils de développement du navigateur (Chrome de préférence) et notamment les onglets Console, Network et Sources et à les utiliser pendant les tps !
 
 ## Instructions
 *Dans ce TP, le fichier index.html contient du code JavaScript qui utilise des classes qui n'existent pas, ce qui génère des erreurs dans la console.
@@ -37,13 +38,11 @@ npm install --save-dev babel-preset-env
 - Le constructeur de la classe `Component` doit prendre 3 paramètres:
 	+ **tagName** (string): Le nom du tag HTML
 	+ **attributes** (objet): Liste des attributs HTML du composant
-	+ **children** (array): Liste des enfant du composant. Peut contenir d'autres instances de `Component` ou de simples string
-- La classe devra implémenter les méthodes suivantes
-	+ **setAttribute(name, value)** : Permet de modifier/ajouter un attribut
-	+ **getAttribute(name)** : Permet de récupérer la valeur d'un attribut
-	+ **getTagName()** : Permet de récupérer le tag du composant HTML
-	+ **render()**: Retourne le code HTML du composant en chaine de caractère en fonction du **tagName**, des **attributes** et des **children**. Cette méthode doit s'appuyer sur la méthode **renderChildren()** décrite ci-dessous
-	+ **renderChildren()**: Retourne le HTML des composants enfants concaténés dans une seule string
+	+ **children** (array): Liste des enfant du composant. Peut contenir d'autres instances de `Component` ou de simples String
+- La classe devra implémenter les méthodes suivantes :
+	+ **render()** : Retourne le code HTML du composant sous forme de chaîne de caractère en fonction du **tagName**, des **attributes** et des **children**. Cette méthode doit s'appuyer sur les méthodes **renderAttributes** et **renderChildren()** décrites ci-dessous.
+	+ **renderAttributes()** : Retourne le code html des différents attributs html du composant.
+	+ **renderChildren()** : Retourne une chaîne de caractères qui correspond à la concaténation du code HTML de tous les composants enfants. Cette méthode va appeler de manière récursive la méthode `render()` des children du composant. Mais attention, comme indiqué au dessus, tous les enfants ne sont pas forcément des Components, il y a aussi de simples String
 
 **2. Créer une classe `Button` qui hérite de `Component`**
 - Le constructeur de la classe doit prendre 2 paramètres:
