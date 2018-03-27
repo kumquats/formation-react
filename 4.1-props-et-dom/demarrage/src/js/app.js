@@ -7,5 +7,5 @@ import VideoList from './VideoList';
 ReactDOM.render(
 	<Video />
 	// <VideoList />
-	, document.getElementById('app')
+	, document.querySelector('#app')
 );

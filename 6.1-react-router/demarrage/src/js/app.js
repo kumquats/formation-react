@@ -24,5 +24,5 @@ ReactDOM.render(
 		<VideoList />
 		<VideoForm />
 */
-	, document.getElementById('app')
+	, document.querySelector('#app')
 );

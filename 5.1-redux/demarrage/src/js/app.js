@@ -9,5 +9,5 @@ ReactDOM.render(
 	<Video />
 	// <VideoForm />
 	// <VideoList />
-	, document.getElementById('app')
+	, document.querySelector('#app')
 );
