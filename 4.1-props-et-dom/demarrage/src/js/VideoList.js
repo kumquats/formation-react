@@ -58,7 +58,7 @@ class VideoList extends React.Component {
 				<li key={video.id} className="media">
 					<div className="media-left">
 						<img className="media-object"
-							alt="cat" src={'https://loremflickr.com/320/240/cat?r='+video.id}
+							alt="cat" src={'http://placeimg.com/120/70/animals?r='+video.id}
 							width="120"
 							height="70" />
 					</div>

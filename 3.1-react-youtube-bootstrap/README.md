@@ -58,7 +58,7 @@ Créer un composant **"VideoList"** :
 - Modifier le fichier `app.js` pour afficher ce composant à la place du composant **Video**
 - Ajouter un state avec une propriété **"videos"** qui contient une liste d'objets video (même format que le state `video` du composant **Video**)
 - Afficher la liste des vidéos qui se trouvent dans son state
-- Chaque vidéo de la liste est représentée par son titre et une vignette (en manque d'inspiration ? Jetez un oeil à http://lorempixel.com/)
+- Chaque vidéo de la liste est représentée par son titre et une vignette (en manque d'inspiration ? Jetez un oeil à http://placeimg.com/)
 
 Quelques optimisations pour le composant **Video** :
 - Dans le composant **"Video"** le champ description devient facultatif, ne pas l'afficher s'il n'y en a pas dans le state.
@@ -100,7 +100,7 @@ Pour la **VideoList** :
             <li class="media">
                 <div class="media-left">
                     <img class="media-object"
-                        alt="cat" src='https://loremflickr.com/320/240/cat?r=0.1267489'
+                        alt="cat" src='http://placeimg.com/120/70/animals?r=0.1267489'
                         width="120"
                         height="70" />
                 </div>

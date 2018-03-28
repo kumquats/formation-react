@@ -119,7 +119,7 @@ class Video extends React.Component {
 		this.setState({newCommentLoading: true});
 		request
 			.post( `${config.apiPath}/videos/${this.state.video.id}/comments` )
-			.send( 'content=' + encodeURIComponent( this.commentInput.value ) )
+			.send( 'content=' + encodeURIComponent( this.state.newComment ) )
 			.then(
 				( response ) => {
 					this.setState({newCommentLoading: false, newComment: ''});
