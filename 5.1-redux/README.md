@@ -55,23 +55,33 @@ npm install --save-dev redux-logger
 
 4. A ce stade, la compilation doit fonctionner et le site s'exécuter dans le navigateur sans erreur dans la console ! Pour s'en persuader, vous pouvez modifier le state par défaut retourné par le reducer en y mettant des valeurs en dur : si tout se passe bien, elles vont s'afficher dans la **VideoList**.
 
-5. Créer un action creator `fetchVideos()` dans le fichier `actions/index.js`. Cet action creator devra :
-	+ lancer un appel ajax avec superagent vers le webservice `api/videos`
-	+ notifier le store (à l'aide de la fonction `dispatch()`) de la réception des données une fois l'appel ajax terminé.
-	+ l'action générée (dispatchée) aura 2 propriétés :
-		* une propriété `type` qui vaudra 'VIDEO_LIST_COMPLETE' (préférez l'utilisation d'une constante, qui aura l'avantage de pouvoir être réutilisée dans le reducer)
-		* une propriété `videos` qui aura comme valeur le tableau retourné par le webservice.
+*Maintenant que l'on est capable d'accéder en lecture au contenu du store, nous allons nous atteler à la **modification du store**.*
 
-6. Pour que l'action creator puisse faire des dispatch asynchrone, il faut que le store soit initialisé avec le middleware `redux-thunk`
+5. Au lieu de mettre en dur la liste des vidéos dans le reducer, nous allons démarrer avec un state par défaut vide, et le modifier à l'aide d'un action creator qui injectera la liste des vidéos (pour le moment sans passer pas le webservice, les données seront en dur). <br>
+	+ Remettre un tableau vide comme state par défaut dans le reducer
+	+ Créer un action creator `fetchVideos()` dans le fichier `actions/index.js`.
+	+ L'action retournée par `fetchVideos()` aura 2 propriétés :
+		* Une propriété `type` qui vaudra `'VIDEO_LIST_COMPLETE'` (préférez l'utilisation d'une constante, qui aura l'avantage de pouvoir être réutilisée dans le reducer)
+		* Une propriété `videos` qui aura comme valeur un tableau de videos en dur (vous pouvez reprendre la liste contenue dans le fichier `videos.js` des précédents tps).
 
-7. Dans **VideoList**, remplacer l'appel ajax par le lancement de l'action creator `fetchVideos()`. Utiliser pour cela la fonction `mapDispatchToProps()`
+6. Dans le `componentWillMount` du composant **VideoList**, remplacer l'appel ajax par le lancement de l'action creator `fetchVideos()`. Utiliser pour cela la fonction `mapDispatchToProps()`
 
-8. Dans le reducer (`reducers/index.js`) prendre en charge l'action dispatchée par l'action creator `fetchVideos()` :
-	+ importer la constante `VIDEO_LIST_COMPLETE` de l'action creator
-	+ tester si le type de l'action reçu correspond à `VIDEO_LIST_COMPLETE`
-	+ retourner le nouveau state en y injectant la propriété `action.videos`
+7. Dans le reducer (`reducers/index.js`) prendre en charge l'action retournée par l'action creator `fetchVideos()` :
+	+ Importer la constante `VIDEO_LIST_COMPLETE` de l'action creator
+	+ Tester si le type de l'action reçu correspond à `VIDEO_LIST_COMPLETE`
+	+ Retourner le nouveau state en y injectant la propriété `action.videos`
 
-9. Vous pouvez à nouveau tester l'application, cette fois l'appel ajax doit se lancer et le résultat s'afficher dans la VideoList.
+*Maintenant que l'on est capable d'agir sur le contenu du store à l'aide d'une **action**, nous allons nous attaquer aux **action creators asynchrones** et au déclenchement d'appels ajax.*
+
+8. Pour que l'action creator puisse faire des dispatch asynchrone, il faut que le store soit initialisé avec le middleware `redux-thunk`
+
+9. Modifier l'action creator `fetchVideos()` :
+	+ Au lieu de retourner directement l'action, retourner une fonction anonyme
+	+ Dans cette fonction anonyme, lancer l'appel ajax avec superagent vers le webservice `api/videos`
+	+ Notifier le store (à l'aide de la fonction `dispatch()`) de la réception des données une fois l'appel ajax terminé en renseignant la propriété `videos` de l'action disptachée avec le tableau retourné par le webservice.
+
+
+10. Vous pouvez à nouveau tester l'application, cette fois l'appel ajax doit se lancer et le résultat s'afficher dans la VideoList.
 
 ## Pour aller plus loin
 - Convertir à leur tour Video et VideoForm à Redux :
