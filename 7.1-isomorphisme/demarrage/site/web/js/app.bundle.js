@@ -748,7 +748,7 @@ var COMMENT_INPUT = exports.COMMENT_INPUT = 'COMMENT_INPUT';
 
 function fetchVideos() {
 	return function (dispatch, getState) {
-		return _superagent2.default.get(_config2.default.apiPath + '/videos').then(function (response) {
+		_superagent2.default.get(_config2.default.apiPath + '/videos').then(function (response) {
 			dispatch({
 				type: VIDEO_LIST_COMPLETE,
 				videos: response.body
@@ -764,7 +764,7 @@ function postVideo(video) {
 
 	return function (dispatch, getState) {
 		dispatch({ type: POST_VIDEO_LOADING, video: video });
-		return _superagent2.default.post(_config2.default.apiPath + '/videos').field('title', title).field('description', description).attach('file', file).then(function (response) {
+		_superagent2.default.post(_config2.default.apiPath + '/videos').field('title', title).field('description', description).attach('file', file).then(function (response) {
 			dispatch({
 				type: POST_VIDEO_COMPLETE,
 				video: response.body
@@ -776,7 +776,7 @@ function postVideo(video) {
 
 function fetchVideo(videoId) {
 	return function (dispatch, getState) {
-		return _superagent2.default.get(_config2.default.apiPath + '/videos/' + videoId).then(function (response) {
+		_superagent2.default.get(_config2.default.apiPath + '/videos/' + videoId).then(function (response) {
 			dispatch({
 				type: VIDEO_COMPLETE,
 				video: response.body
@@ -787,7 +787,7 @@ function fetchVideo(videoId) {
 
 function fetchComments(videoId) {
 	return function (dispatch, getState) {
-		return _superagent2.default.get(_config2.default.apiPath + '/videos/' + videoId + '/comments').then(function (response) {
+		_superagent2.default.get(_config2.default.apiPath + '/videos/' + videoId + '/comments').then(function (response) {
 			dispatch({
 				type: COMMENT_LIST_COMPLETE,
 				comments: response.body
@@ -802,7 +802,7 @@ function postComment(_ref) {
 
 	return function (dispatch, getState) {
 		dispatch({ type: POST_COMMENT_LOADING });
-		return _superagent2.default.post(_config2.default.apiPath + '/videos/' + videoId + '/comments').send('content=' + encodeURIComponent(content)).then(function (response) {
+		_superagent2.default.post(_config2.default.apiPath + '/videos/' + videoId + '/comments').send('content=' + encodeURIComponent(content)).then(function (response) {
 			dispatch({
 				type: POST_COMMENT_COMPLETE,
 				comment: response.body
@@ -5453,7 +5453,7 @@ _reactDom2.default.render(_react2.default.createElement(
     _reactRedux.Provider,
     { store: store },
     _react2.default.createElement(_reactRouter.Router, { history: history, routes: _routes2.default })
-), document.getElementById('app'));
+), document.querySelector('#app'));
 
 /***/ }),
 /* 71 */
@@ -28001,7 +28001,7 @@ var VideoItem = function VideoItem(props) {
 				'div',
 				{ className: 'media-left' },
 				_react2.default.createElement('img', { className: 'media-object',
-					alt: 'cat', src: 'https://loremflickr.com/320/240/cat?r=' + props.video.id,
+					alt: 'cat', src: 'http://placeimg.com/120/70/animals?r=' + props.video.id,
 					width: '120',
 					height: '70' })
 			),

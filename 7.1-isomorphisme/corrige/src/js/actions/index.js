@@ -20,15 +20,15 @@ export const COMMENT_INPUT = 'COMMENT_INPUT';
 export function fetchVideos(){
 	return (dispatch, getState) => {
 		return request
-		.get( `${config.apiPath}/videos` )
-		.then(
-			( response ) => {
-				dispatch({
-					type: VIDEO_LIST_COMPLETE,
-					videos: response.body
-				});
-			}
-		)
+			.get( `${config.apiPath}/videos` )
+			.then(
+				( response ) => {
+					dispatch({
+						type: VIDEO_LIST_COMPLETE,
+						videos: response.body
+					});
+				}
+			);
 	}
 }
 

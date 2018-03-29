@@ -19,16 +19,16 @@ export const COMMENT_INPUT = 'COMMENT_INPUT';
 
 export function fetchVideos(){
 	return (dispatch, getState) => {
-		return request
-		.get( `${config.apiPath}/videos` )
-		.then(
-			( response ) => {
-				dispatch({
-					type: VIDEO_LIST_COMPLETE,
-					videos: response.body
-				});
-			}
-		)
+		request
+			.get( `${config.apiPath}/videos` )
+			.then(
+				( response ) => {
+					dispatch({
+						type: VIDEO_LIST_COMPLETE,
+						videos: response.body
+					});
+				}
+			);
 	}
 }
 
@@ -36,7 +36,7 @@ export function postVideo(video) {
 	const {title, description, file} = video;
 	return ( dispatch, getState ) => {
 		dispatch( { type: POST_VIDEO_LOADING, video: video } );
-		return request
+		request
 			.post( `${config.apiPath}/videos` )
 			.field('title', title)
 			.field('description', description)
@@ -54,7 +54,7 @@ export function postVideo(video) {
 
 export function fetchVideo( videoId ) {
 	return ( dispatch, getState ) => {
-		return request
+		request
 			.get( `${config.apiPath}/videos/${videoId}` )
 			.then(
 				( response ) => {
@@ -69,7 +69,7 @@ export function fetchVideo( videoId ) {
 
 export function fetchComments( videoId ){
 	return ( dispatch, getState ) => {
-		return request
+		request
 			.get( `${config.apiPath}/videos/${videoId}/comments` )
 			.then(
 				( response ) => {
@@ -85,7 +85,7 @@ export function fetchComments( videoId ){
 export function postComment( { videoId, content } ) {
 	return ( dispatch, getState ) => {
 		dispatch( { type: POST_COMMENT_LOADING } );
-		return request
+		request
 			.post( `${config.apiPath}/videos/${videoId}/comments` )
 			.send( 'content=' + encodeURIComponent( content ) )
 			.then(

@@ -5451,7 +5451,7 @@ _reactDom2.default.render(_react2.default.createElement(
     _reactRedux.Provider,
     { store: store },
     _react2.default.createElement(_reactRouter.Router, { history: history, routes: _routes2.default })
-), document.getElementById('app'));
+), document.querySelector('#app'));
 
 /***/ }),
 /* 71 */
@@ -28021,7 +28021,7 @@ var VideoItem = function VideoItem(props) {
 				'div',
 				{ className: 'media-left' },
 				_react2.default.createElement('img', { className: 'media-object',
-					alt: 'cat', src: 'https://loremflickr.com/320/240/cat?r=' + props.video.id,
+					alt: 'cat', src: 'http://placeimg.com/120/70/animals?r=' + props.video.id,
 					width: '120',
 					height: '70' })
 			),
