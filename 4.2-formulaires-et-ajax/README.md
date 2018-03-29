@@ -19,8 +19,7 @@ Vous pouvez ensuite dans votre code faire référence à l'objet config avec la 
 
 ## Instructions
 - Dans **VideoList** remplacer l'utilisation des videos en dur par des données dynamiques : faire un appel GET vers le webservice `config.apiPath+"/videos"` pour récupérer la liste des vidéos depuis la base de données.
-- Si nécessaire, enlever le mécanisme de changement de vidéo au clic sur le bouton dans le composant **Video**.
-- A l'affichage du composant appeler le webservice GET `config.apiPath + "/videos/:id"` (*NB: pour le moment mettre l'id en dur dans la classe) et mettre à jour le DOM une fois les données récupérées.
+- Dans **Video** appeler le webservice GET `config.apiPath + "/videos/:id"` à l'affichage du composant (*NB: pour le moment mettre l'id en dur dans la classe) et mettre à jour le DOM une fois les données récupérées.
 
 ## Pour aller plus loin
 - Dans la **Video**, créer une méthode `fetchComments` qui appelle le webservice GET `config.apiPath + "/videos/:id/comments"` et afficher la liste des commentaires reçus en dessous de la vidéo.
