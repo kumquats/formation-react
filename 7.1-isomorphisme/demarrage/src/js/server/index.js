@@ -95,5 +95,5 @@ app.get(/^\/.*/, (req, res, next) => {
 
 // On lance le serveur et on écoute le port 3333
 app.listen(3333, function () {
-  console.log('Example app listening on port 3333!');
+	console.log('l\'appli Youtube est lancée sur le port 3333, testez la sur http://localhost:3333 !');
 });
