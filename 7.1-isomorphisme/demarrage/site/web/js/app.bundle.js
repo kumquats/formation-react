@@ -30208,9 +30208,6 @@ var Video = function (_React$Component) {
 									'Ajouter un commentaire'
 								),
 								_react2.default.createElement('textarea', {
-									ref: function ref(el) {
-										return _this2.commentInput = el;
-									},
 									className: 'form-control',
 									value: this.props.newComment.input,
 									onChange: this.handleCommentInputChange,
@@ -30269,7 +30266,7 @@ var Video = function (_React$Component) {
 	}, {
 		key: 'handleCommentInputChange',
 		value: function handleCommentInputChange(event) {
-			this.props.updateCommentInput(this.commentInput.value);
+			this.props.updateCommentInput(event.target.value);
 		}
 	}, {
 		key: 'handleSubmit',
@@ -30277,7 +30274,7 @@ var Video = function (_React$Component) {
 			event.preventDefault();
 			this.props.postComment({
 				videoId: this.props.video.id,
-				content: this.commentInput.value
+				content: this.props.newComment.input
 			});
 		}
 	}]);

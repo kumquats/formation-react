@@ -72,7 +72,6 @@ class Video extends React.Component {
 						  <div className="form-group">
 							<label htmlFor="content">Ajouter un commentaire</label>
 							<textarea
-								ref={el => this.commentInput = el}
 								className="form-control"
 								value={this.state.newComment}
 								onChange={this.handleCommentInputChange}
@@ -111,7 +110,7 @@ class Video extends React.Component {
 	}
 
 	handleCommentInputChange( event ) {
-		this.setState({newComment : this.commentInput.value});
+		this.setState({newComment : event.target.value});
 	}
 
 	handleSubmit( event ) {
