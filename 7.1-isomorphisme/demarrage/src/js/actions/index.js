@@ -48,7 +48,7 @@ export function postVideo(video) {
 						type: POST_VIDEO_COMPLETE,
 						video: response.body
 					} );
-					dispatch( push( '/videos/' + response.body.id ) )
+					dispatch( push( '/videos/' + response.body.id ) );
 				}
 			);
 	}

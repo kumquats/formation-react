@@ -1,5 +1,6 @@
 import request from 'superagent';
 import config from 'config';
+import {push} from 'react-router-redux';
 
 // Liste Vidéos
 export const VIDEO_LIST_COMPLETE = 'VIDEO_LIST_COMPLETE';
@@ -47,6 +48,7 @@ export function postVideo(video) {
 						type: POST_VIDEO_COMPLETE,
 						video: response.body
 					} );
+					dispatch( push('/videos/'+response.body.id) );
 				}
 			);
 	}
