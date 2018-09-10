@@ -6,7 +6,7 @@ class Video extends React.Component {
 	constructor() {
 		super();
 
-		let index = Math.floor(Math.random()*videos.length);
+		const index = Math.floor(Math.random()*videos.length);
 		this.state = {
 			index,
 			video: videos[index]
@@ -61,7 +61,7 @@ class Video extends React.Component {
 	}
 
 	handleNextVideoClick() {
-		let newIndex = (this.state.index+1) % videos.length;
+		const newIndex = (this.state.index+1) % videos.length;
 		this.setState({
 			index: newIndex,
 			video: videos[newIndex]

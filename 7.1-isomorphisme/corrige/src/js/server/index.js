@@ -53,16 +53,16 @@ app.get(/^\/.*/, (req, res, next) => {
         // Si une route a bien matché
         } else if (renderProps) {
             // On récupère les paramètres de la route
-            let { query, params } = renderProps;
+            const { query, params } = renderProps;
 
             // On récupère le composant correspondant à la route
-            let Component = renderProps.components[
+            const Component = renderProps.components[
                 renderProps.components.length - 1
             ].WrappedComponent;
 
             // On crée une fonction qui envoie le HTML au client
             // et qui prend le state en paramètre
-            let sendHTML = ( state ) => res.status(200).send(
+            const sendHTML = ( state ) => res.status(200).send(
                 page( renderToString(
                     <Provider store={store}>
                         <RouterContext {...renderProps} />
