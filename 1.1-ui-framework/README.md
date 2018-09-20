@@ -21,7 +21,7 @@ L'objectif de ce TP est de développer un mini framework UI capable de générer
 - Puis créer un fichier `.babelrc` et configurer Babel avec le preset `env` :
 	```json
 	{
-	"presets": ["env"]
+		"presets": ["@babel/env"]
 	}
 	```
 	*NB : pour lancer la compilation, vous pourrez utiliser la commande suivante :*
