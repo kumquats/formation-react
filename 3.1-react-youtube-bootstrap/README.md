@@ -28,8 +28,9 @@ output: {
 	+ et le dossier `src/build`
 
 ## Instructions
-1. **Modifier le fichier `src/js/app.js` pour initialiser une application React contenant un composant unique `Video`**
-2. **Créer le composant `Video` dans le dossier `src/js`.** Ce composant :
+1. **Modifier le fichier `src/js/app.js` pour initialiser une application React contenant un composant unique `Video`**<br>
+Rendre l'application dans la balise d'id `appContainer`.
+3. **Créer le composant `Video` dans le dossier `src/js`.** Ce composant :
     + dispose d'un state `video` de la forme :
 	```js
 	{
