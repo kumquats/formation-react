@@ -7,28 +7,29 @@ L'objectif de ce TP est de mettre en place la base d'un projet utilisant le gest
 ## Préparatifs
 - Créer un sous-dossier pour le TP dans votre arborescence web : par exemple `c:\wamp\www\1.2-modules-webpack`
 - Dans ce dossier, reproduire l'arborescence suivante :
-```
-src/
-  js/
-  build/
-```
+	```
+	src/
+	  ├─ js/
+	  └─ build/
+	```
 - Dans le dossier `src` initialiser le projet npm à l'aide de la commande :
-```bash
-npm init
-```
+	```bash
+	npm init
+	```
 - Installer les paquets NPM suivants avec l'option --save-dev:
-    + babel-core
-    + babel-loader
-    + babel-preset-env
-    + webpack
-    + webpack-cli
-- configurer Babel à l'aide d'un fichier `.babelrc`
+    + [@babel/core](https://www.npmjs.com/package/@babel/core)
+    + [@babel/cli](https://www.npmjs.com/package/@babel/cli)
+    + [@babel/preset-env](https://www.npmjs.com/package/@babel/preset-env)
+    + [babel-loader](https://www.npmjs.com/package/babel-loader)
+    + [webpack](https://www.npmjs.com/package/webpack)
+    + [webpack-cli](https://www.npmjs.com/package/webpack-cli)
+- configurer Babel à l'aide d'un fichier `.babelrc` comme vu dans le précédent TP
 - ajouter un script dans le fichier `package.json` qui permettra de lancer plus facilement webpack :
-```json
-"scripts": {
-    "build": "webpack"
-},
-```
+	```json
+	"scripts": {
+		"build": "webpack"
+	},
+	```
 
 
 ## Instructions
