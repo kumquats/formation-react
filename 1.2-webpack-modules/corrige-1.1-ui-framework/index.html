@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TP Framework UI</title>
+	<script type="text/javascript" src="build/ui-framework.js"></script>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body {
+			font-family: Arial;
+		}
+	</style>
+</head>
+<body>
+	<h1>TP Framework UI</h1>
+
+	<div>
+		<h3>Test Component</h3>
+
+		<p>Si tout fonctionne bien, une div avec un h3 et un input text doit s'afficher.</p>
+		<div id="component-container">
+
+		</div>
+		<script>
+			var component = new Component( 'div', { style: "border: 1px solid black" }, [
+					new Component( 'h3', {}, [
+						'Test du ',
+						new Component( 'strong', { style: 'color: blue' }, [ 'framework' ] ),
+						' ui'
+					] ),
+					new Component( 'input', { type: 'text', value: 'Ca a l\'air de fonctionner correctement', style: 'width: 500px' } )
+				] );
+			document.getElementById( 'component-container' ).innerHTML = component.render();
+		</script>
+	</div>
+	<div>
+		<h3>Test Button</h3>
+
+		<p>Si tout fonctionne bien, le Button doit s'afficher ci-dessous.<p>
+		<div id="button-container">
+
+		</div>
+		<script>
+			var button = new Button( 'Ceci est un bouton' );
+			document.getElementById( 'button-container' ).innerHTML = button.render();
+		</script>
+	</div>
+	<div>
+		<h3>Test RoundedRedButton</h3>
+
+		<p>Si tout fonctionne bien, le RoundedRedButton doit s'afficher ci-dessous.<p>
+		<div id="rounded-red-button-container">
+
+		</div>
+		<script>
+			var roundedRedButton = new RoundedRedButton( 'Ceci est un bouton rouge arrondi' );
+			document.getElementById( 'rounded-red-button-container' ).innerHTML = roundedRedButton.render();
+		</script>
+	</div>
+</body>
+</html>
