@@ -24,7 +24,7 @@ function mapDispatchToProps( dispatch )
 
 
 class Video extends React.Component {
-	static fetchData( store, params, query ) {
+	static fetchData( store, params ) {
 		return Promise.all([
 			store.dispatch( fetchVideo( params.id ) ),
 			store.dispatch( fetchComments( params.id ) )
@@ -33,14 +33,14 @@ class Video extends React.Component {
 
 	constructor() {
 		super();
-		this.id = 1;
 		this.handleSubmit = this.handleSubmit.bind( this );
 		this.handleCommentInputChange = this.handleCommentInputChange.bind( this );
 	}
 
-	componentWillMount(){
-		this.props.fetchVideo(this.props.params.id);
-		this.props.fetchComments(this.props.params.id);
+	componentDidMount(){
+		const routeParams = this.props.match.params;
+		this.props.fetchVideo( routeParams.id );
+		this.props.fetchComments( routeParams.id );
 	}
 
 	componentDidUpdate(prevProps, prevState){

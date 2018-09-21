@@ -14,7 +14,7 @@ Module.prototype.require = function ( module ) {
 
 // Permet que tous les require suivants passent par la
 // moulinette de BabelJS
-require("babel-core/register");
+require("@babel/register");
 
 // On importe le serveur
 require("./js/server");

@@ -1,6 +1,4 @@
 import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
-
 import video from './video';
 import comments from './comments';
 import newComment from './newComment';
@@ -12,8 +10,7 @@ export default combineReducers({
 	comments,
 	newComment,
 	newVideo,
-	videos,
-	routing: routerReducer
+	videos
 });
 
 

@@ -1,5 +1,5 @@
 {
-	"basePath": "http://localhost:3333",
+	"basePath": "",
 	"apiPath": "http://localhost/_formations-et-cours/formation-REJS-reactjs-developpement-web/github/7.1-isomorphisme/corrige/site/web/api",
 	"videoPath": "http://localhost/_formations-et-cours/formation-REJS-reactjs-developpement-web/github/7.1-isomorphisme/corrige/site/web/uploads"
 }

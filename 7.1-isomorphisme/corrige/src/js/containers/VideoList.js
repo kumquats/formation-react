@@ -21,12 +21,12 @@ function mapDispatchToProps( dispatch )
 }
 
 class VideoList extends React.Component {
-	
-	static fetchData( store, params, query ) {
-    	return store.dispatch( fetchVideos() );
+
+	static fetchData( store, params ) {
+		return store.dispatch( fetchVideos() );
 	}
-	
-	componentWillMount(){
+
+	componentDidMount(){
 		this.props.fetchVideos();
 	}
 
@@ -44,7 +44,7 @@ class VideoList extends React.Component {
 
 	renderVideos() {
 		return this.props.videos.map( ( video ) => {
-			return <VideoItem key={video.id} video={video} />
+			return <VideoItem key={video.id} video={video} />;
 		});
 	}
 }
