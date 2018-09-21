@@ -5,21 +5,20 @@ Connecter l'application à des webservices et utiliser les formulaires avec Reac
 
 ## Préparatifs
 - installer les packets NPM suivants avec l'option --save:
-    + superagent
+    + [superagent](https://www.npmjs.com/package/superagent)
 - consulter la [documentation de SuperAgent](http://visionmedia.github.com/superagent/) et le [github de SuperAgent](https://github.com/visionmedia/superagent)
-- si vous inspectez le code de la page html générée par le serveur, vous constaterez une balise `<script>` contenant un objet `config` généré par PHP et contenant des chemins qui seront utiles pour le développement. Pour pouvoir utiliser cette variable, ajouter la configuration suivante au **"webpack.config.js"**
-```
-externals: {
-	'config': 'config',
-},
-```
-
-Vous pouvez ensuite dans votre code faire référence à l'objet config avec la ligne `import config from 'config';`
+- si vous inspectez le code de la page html générée par le serveur, vous constaterez une balise `<script>` contenant un objet `config` généré par PHP et contenant des chemins qui seront utiles pour le développement. Pour pouvoir utiliser cette variable, ajouter la configuration suivante au `webpack.config.js` :
+	```
+	externals: {
+		'config': 'config',
+	},
+	```
+	Vous pouvez ensuite dans votre code faire référence à l'objet config avec la ligne `import config from 'config';`
 
 
 ## Instructions
-- Dans **VideoList** remplacer l'utilisation des videos en dur par des données dynamiques : faire un appel GET vers le webservice `config.apiPath+"/videos"` pour récupérer la liste des vidéos depuis la base de données.
-- Dans **Video** appeler le webservice GET `config.apiPath + "/videos/:id"` à l'affichage du composant (*NB: pour le moment mettre l'id en dur dans la classe) et mettre à jour le DOM une fois les données récupérées.
+1. Dans `VideoList` remplacer l'utilisation des videos en dur par des données dynamiques : faire un appel GET vers le webservice `config.apiPath+"/videos"` pour récupérer la liste des vidéos depuis la base de données.
+2. Dans `Video` appeler le webservice GET `config.apiPath + "/videos/:id"` à l'affichage du composant (*NB: pour le moment mettre l'id en dur dans la classe) et mettre à jour le DOM une fois les données récupérées.
 
 ## Pour aller plus loin
 - Dans la **Video**, créer une méthode `fetchComments` qui appelle le webservice GET `config.apiPath + "/videos/:id/comments"` et afficher la liste des commentaires reçus en dessous de la vidéo.
@@ -27,7 +26,7 @@ Vous pouvez ensuite dans votre code faire référence à l'objet config avec la 
     + un textarea
     + un input submit
 - Enregistrer le commentaire saisi par l'utilisateur en appelant le webservice POST `config.apiPath + "/videos/:id/comments"`  et mettre à jour la liste des commentaires
-- créer un nouveau composant **"VideoForm"** qui permet d'enregistrer une nouvelle vidéo. Le composant est constitué d'un formulaire avec les champs suivants:
+- créer un nouveau composant `VideoForm` qui permet d'enregistrer une nouvelle vidéo. Le composant est constitué d'un formulaire avec les champs suivants:
         * Titre: type texte
         * Description: textarea
         * Fichier: type file
