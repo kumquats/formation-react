@@ -17,12 +17,12 @@ import configureStore from './store/configureStore';
 const store = configureStore();
 
 ReactDOM.render(
-    <Provider store={store}>
+	<Provider store={store}>
 		<Video />
-    </Provider>
+	</Provider>
 /*
 		<VideoList />
 		<VideoForm />
 */
-	, document.querySelector('#app')
+	, document.querySelector('#appContainer')
 );
