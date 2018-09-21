@@ -12,7 +12,7 @@ class VideoList extends React.Component {
 		}
 	}
 
-	componentWillMount(){
+	componentDidMount(){
 		request
 			.get( `${config.apiPath}/videos` )
 			.then(

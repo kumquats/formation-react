@@ -18,7 +18,7 @@ class Video extends React.Component {
 		this.handleCommentInputChange = this.handleCommentInputChange.bind( this );
 	}
 
-	componentWillMount(){
+	componentDidMount(){
 		request
 			.get( `${config.apiPath}/videos/${this.id}` )
 			.then(
