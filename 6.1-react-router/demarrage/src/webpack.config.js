@@ -1,5 +1,5 @@
 const path = require('path');
-const webpack = require('webpack');
+
 module.exports = {
 	// Fichier d'entrée
 	entry: './js/app.js',
@@ -25,15 +25,5 @@ module.exports = {
 			}
 		]
 	},
-	devtool: 'source-map',
-	// plugins: [
-	// 	new webpack.optimize.UglifyJsPlugin({
-	// 		compress: {
-	// 			warnings: false,
-	// 		},
-	// 		output: {
-	// 			comments: false,
-	// 		},
-	// 	}),
-	// ]
+	devtool: 'source-map'
 }
