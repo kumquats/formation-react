@@ -31,9 +31,9 @@ L'objectif de ce TP est d'apprendre à structurer l'application et à gérer eff
 ## Instructions
 *Si développer une application Redux en partant de zéro est assez aisé, convertir un projet existant pour y intégrer redux n'est pas si simple : beaucoup de modifications sont à apporter au code avant de pouvoir tester le résultat. Il ne sera donc possible de tester le bon fonctionnement de vos modifications **qu'après avoir tout converti** ! <br>Alors, accrochez vous, c'est parti !*
 
-#### 1. Connecter la VideoList à Redux :
+### 1. Connecter la VideoList à Redux :
 
-1. Créer un fichier `reducers/index.js` et y coder le state par défaut de l'application :
+1. **Créer un fichier `reducers/index.js` et y coder le state par défaut de l'application** :
 	+ Créer une constante `defaultState`
 	+ lui affecter comme valeur un objet avec une propriété `videos` qui remplacera le state de la `VideoList`.
 	+ exporter une fonction anonyme qui prend en paramètre
@@ -41,21 +41,21 @@ L'objectif de ce TP est d'apprendre à structurer l'application et à gérer eff
 		* et un objet `action` qui correspondra à l'action dispatchée par l'action creator
 	+ cette fonction retournera le state reçu en paramètre sans lui appliquer de modifications (pour l'instant !)
 
-2. Connecter `VideoList` au store :
+2. **Connecter `VideoList` au store** :
 	+ supprimer le state local (`this.state`)
 	+ récupérer à la place le state `videos` du store à l'aide du décorateur `connect` et de la fonction `mapStateToProps()`
 	+ modifier la fonction `render()` en conséquence (disparition de `this.state`)
 
-3. Modifier le fichier `app.js` :
+3. **Créer le store dans le fichier `app.js`** :
 	+ créer le store de l'application à l'aide de la fonction `createStore( reducer )`
 	+ Dans l'appel à la méthode `ReactDOM.render(...)` utiliser le composant `<Provider>` pour entourer le composant `VideoList`. Cela permettra au `connect()` de rendre le `state` accessible dans la `VideoList`. (ne pas oublier de passer le `store` au `Provider` !)
 
-4. A ce stade, la compilation doit fonctionner et le site s'exécuter dans le navigateur sans erreur dans la console ! Pour s'en persuader, vous pouvez modifier le state par défaut retourné par le reducer en y mettant des valeurs en dur : si tout se passe bien, elles vont s'afficher dans la `VideoList`.
+*A ce stade, la compilation doit fonctionner et le site s'exécuter dans le navigateur sans erreur dans la console ! Pour s'en persuader, vous pouvez modifier le state par défaut retourné par le reducer en y mettant des valeurs en dur : si tout se passe bien, elles vont s'afficher dans la `VideoList`.*
 
-#### 2. Lancer une action pour modifier le state
+### 2. modifier le state avec une action
 *Maintenant que l'on est capable d'accéder en lecture au contenu du store, nous allons nous atteler à la **modification du store grâce aux actions et au reducer**.*
 
-5. Avant d'aller plus loin, nous allons configurer le store pour nous permettre d'utiliser l'extension Redux Devtools qui nous aidera à debugger notre appli en cas de problème :
+1. **Avant d'aller plus loin, nous allons configurer le store pour nous permettre d'utiliser l'extension Redux Devtools** qui nous aidera à debugger notre appli en cas de problème :
 	```js
 	import { createStore, compose } from 'redux';
 
@@ -65,10 +65,9 @@ L'objectif de ce TP est d'apprendre à structurer l'application et à gérer eff
 	*(Plus d'infos sur l'installation et la configuration de Redux Devtools : https://github.com/zalmoxisus/redux-devtools-extension)*<br>
 	Une fois configurée, ouvrir notre site dans chrome, et dans les outils de développement, afficher l'onglet "Redux". Vous pouvez constater qu'il est possible de voir les actions qui sont lancées (pour le moment une seule) et d'inspecter l'état du state global.
 
-6. Au lieu de mettre en dur la liste des vidéos dans le reducer, nous allons démarrer avec un state par défaut vide, et le modifier à l'aide d'une action qui y injectera la liste des vidéos (pour le moment sans passer pas le webservice, les données seront en dur). <br>
-	+ Remettre un tableau vide comme state par défaut dans le reducer
+2. **Au lieu de mettre en dur la liste des vidéos dans le `reducer`, nous allons démarrer avec un state par défaut vide**. C'est l'action que nous allons créer qui lui enverra la liste des vidéos : Remettre un tableau vide comme state par défaut dans le `reducer`.
 
-7. Dans le `componentDidMount` du composant `VideoList`, remplacer l'appel ajax par le lancement d'une action (commenter l'appel ajax, on en aura besoin par la suite !):
+3. **Dans le `componentDidMount()` du composant `VideoList`, remplacer l'appel ajax par le lancement d'une action** (commenter l'appel ajax, on en aura besoin par la suite !):
 	+ créer une variable nommée `action` et lui affecter un objet littéral avec deux propriétés :
 		* Une propriété `type` qui vaudra la chaîne de caractères `'VIDEO_LIST_COMPLETE'`
 		* Une propriété `videos` qui aura comme valeur un tableau de videos en dur (vous pouvez reprendre la liste contenue dans le fichier `videos.js` des précédents tps).
@@ -77,24 +76,24 @@ L'objectif de ce TP est d'apprendre à structurer l'application et à gérer eff
 		this.props.dispatch( action );
 		```
 
-8. Dans le reducer (`reducers/index.js`) prendre en charge cette action :
+4. **Dans le reducer (`reducers/index.js`) prendre en charge cette action** :
 	+ Tester si le type de l'action reçue correspond à `'VIDEO_LIST_COMPLETE'`
 	+ Retourner un nouveau state en y injectant la propriété `action.videos`
 
-9. Vous pouvez à nouveau tester l'application, cette fois la `VideoList` doit se remplir presque immédiatement après le lancement !
+*Vous pouvez à nouveau tester l'application, cette fois la `VideoList` doit se remplir presque immédiatement après le lancement !*
 
 
 #### 3. Les appels ajax et les actions asynchrones
 *Maintenant que l'on est capable d'agir sur le contenu du store à l'aide d'une **action**, nous allons nous attaquer aux **action creators asynchrones** et au déclenchement d'appels ajax.*
 
-10. **Dans un premier temps nous allons externaliser la création de notre action dans un module à part de la vue** (meilleure répartition des responsabilités). Nous allons donc coder un **"action creator"** (fonction de création d'action) :
+1. **Dans un premier temps nous allons externaliser la création de notre action dans un module à part de la vue** (meilleure répartition des responsabilités). Nous allons donc coder un **"action creator"** (fonction de création d'action) :
 	+ Créer un fichier `actions/index.js`
 	+ Coder et exporter une fonction nommée `fetchVideos()` qui retournera le même objet que l'action actuellement dispatchée dans le `componentDidMount` de la `VideoList`
 	+ Pour la propriété `type` de l'action retournée, plutôt que d'utiliser une chaîne de caractères en dur, créer et exporter une constante `VIDEO_LIST_COMPLETE` dont la valeur sera la chaîne de caractères `'VIDEO_LIST_COMPLETE'`. Utiliser cette constante dans le `type` de l'action retournée **et** dans le `reducer`.
 	+ Dans le composant `VideoList`, importer la fonction `fetchVideos()` et l'employer à la place de l'action en dur jusque là utilisée dans le `componentDidMount()`
 	+ Vérifier que tout fonctionne toujours (Penser à utiliser Redux Devtools !)
 
-11. Pour que l'action creator puisse communiquer avec les webservices et faire des dispatch asynchrone, il faut que le store soit initialisé avec le middleware `redux-thunk` :
+2. **Pour que l'action creator puisse communiquer avec les webservices et faire des dispatch asynchrone, il faut que le store soit initialisé avec le middleware `redux-thunk`** :
 	```js
 	import { createStore, compose, applyMiddleware } from 'redux';
 	import thunk from 'redux-thunk';
@@ -106,12 +105,14 @@ L'objectif de ce TP est d'apprendre à structurer l'application et à gérer eff
 		)
 	);
     ```
-12. Modifier l'action creator `fetchVideos()` :
+3. **Modifier l'action creator `fetchVideos()` pour lancer un appel ajax** :
 	+ Au lieu de retourner directement l'action, retourner une fonction anonyme
 	+ Dans cette fonction anonyme, lancer l'appel ajax avec superagent vers le webservice `api/videos`
 	+ Notifier le store (à l'aide de la fonction `dispatch()`) de la réception des données une fois l'appel ajax terminé en renseignant la propriété `videos` de l'action dispatchée avec le tableau retourné par le webservice.
 
-***Ca y est ! :sweat_smile:Vous pouvez à nouveau tester l'application, cette fois l'appel ajax doit se lancer et le résultat s'afficher dans la VideoList. :sweat_smile: Noter dans Redux Devtools l'apparition de l'action et le résultat sur le state.<br> Impressionnant !*** :beers:
+***Ca y est ! Vous pouvez à nouveau tester l'application, cette fois l'appel ajax doit se lancer et le résultat s'afficher dans la VideoList.*** :sweat_smile:
+<br>*Noter dans Redux Devtools l'apparition de l'action et le résultat sur le state.*
+<br>**Si vous avez survécu jusque là, bravo !** :beers:
 
 ## Pour aller plus loin
 - Convertir à leur tour Video et VideoForm à Redux :
