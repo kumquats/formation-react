@@ -13,7 +13,7 @@ export default function( html = '', preloadedState = {} ) {
         </head>
         <body>
             <!-- On injecte le HTML ici-->
-            <div id="app">${html}</div>
+            <div id="appContainer">${html}</div>
             <!-- Pour certaines pages on préchargera
             éventuellement les données -->
             <script type="text/javascript">

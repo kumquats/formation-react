@@ -32,5 +32,5 @@ ReactDOM.render(
     <Provider store={store}>
         <Router history={history} routes={routes} />
     </Provider>
-	, document.querySelector('#app')
+	, document.querySelector('#appContainer')
 );

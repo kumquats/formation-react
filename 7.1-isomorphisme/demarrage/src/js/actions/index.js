@@ -1,6 +1,6 @@
 import request from 'superagent';
 import config from 'config';
-import { push } from 'react-router-redux';
+import { push } from 'connected-react-router';
 
 // Liste Vidéos
 export const VIDEO_LIST_COMPLETE = 'VIDEO_LIST_COMPLETE';

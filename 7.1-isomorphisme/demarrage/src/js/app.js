@@ -1,19 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, useRouterHistory } from 'react-router';
-import { createHistory } from 'history';
-import { syncHistoryWithStore} from 'react-router-redux';
+import { createStore } from "redux";
+import { createBrowserHistory } from "history";
+import { ConnectedRouter } from "connected-react-router";
 
-// On importe les routes de l'application
-import routes from './routes.js';
-import config from 'config';
+import Layout from './containers/Layout';
 import reducer from "./reducers";
 import configureStore from './store/configureStore';
 
 // On crée un historique synchronisé avec le store
 // (browserHistory = Historique basé sur l'URL du navigateur)
-const browserHistory = useRouterHistory(createHistory)({
+const browserHistory = createBrowserHistory({
   basename: config.basePath // racine du site concaténé aux URLs du Router
 });
 
@@ -22,15 +20,14 @@ const browserHistory = useRouterHistory(createHistory)({
 //
 // Pour pouvoir utiliser les Redux Devtools la syntaxe,
 // plus complexe est externalisée dans un module configureStore
+// On passe l'historique à la fonction configureStore
 const store = configureStore( browserHistory );
-const history = syncHistoryWithStore(browserHistory, store);
 
-
-// A la place du composant principal on utilise
-// le composant "Router" de 'react-router'
 ReactDOM.render(
     <Provider store={store}>
-        <Router history={history} routes={routes} />
+		<ConnectedRouter history={browserHistory}>
+			<Layout />
+		</ConnectedRouter>
     </Provider>
-	, document.querySelector('#app')
+	, document.querySelector('#appContainer')
 );
