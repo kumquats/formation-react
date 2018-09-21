@@ -50,9 +50,9 @@ L'objectif de ce TP est d'apprendre à structurer l'application et à gérer eff
 	+ créer le store de l'application à l'aide de la fonction `createStore( reducer )`
 	+ Dans l'appel à la méthode `ReactDOM.render(...)` utiliser le composant `<Provider>` pour entourer le composant `VideoList`. Cela permettra au `connect()` de rendre le `state` accessible dans la `VideoList`. (ne pas oublier de passer le `store` au `Provider` !)
 
-*A ce stade, la compilation doit fonctionner et le site s'exécuter dans le navigateur sans erreur dans la console ! Pour s'en persuader, vous pouvez modifier le state par défaut retourné par le reducer en y mettant des valeurs en dur : si tout se passe bien, elles vont s'afficher dans la `VideoList`.*
+*A ce stade, la compilation doit fonctionner et le site s'exécuter dans le navigateur sans erreur dans la console ! Pour s'en persuader, vous pouvez modifier le state par défaut retourné par le reducer en y mettant des valeurs en dur : si tout se passe bien, elles vont s'afficher dans la `VideoList`.*<br><br>
 
-### 2. modifier le state avec une action
+### 2. Modifier le state grâce aux actions
 *Maintenant que l'on est capable d'accéder en lecture au contenu du store, nous allons nous atteler à la **modification du store grâce aux actions et au reducer**.*
 
 1. **Avant d'aller plus loin, nous allons configurer le store pour nous permettre d'utiliser l'extension Redux Devtools** qui nous aidera à debugger notre appli en cas de problème :
@@ -80,10 +80,10 @@ L'objectif de ce TP est d'apprendre à structurer l'application et à gérer eff
 	+ Tester si le type de l'action reçue correspond à `'VIDEO_LIST_COMPLETE'`
 	+ Retourner un nouveau state en y injectant la propriété `action.videos`
 
-*Vous pouvez à nouveau tester l'application, cette fois la `VideoList` doit se remplir presque immédiatement après le lancement !*
+*Vous pouvez à nouveau tester l'application, cette fois la `VideoList` doit se remplir presque immédiatement après le lancement !*<br><br>
 
 
-#### 3. Les appels ajax et les actions asynchrones
+### 3. Les appels ajax et les actions asynchrones
 *Maintenant que l'on est capable d'agir sur le contenu du store à l'aide d'une **action**, nous allons nous attaquer aux **action creators asynchrones** et au déclenchement d'appels ajax.*
 
 1. **Dans un premier temps nous allons externaliser la création de notre action dans un module à part de la vue** (meilleure répartition des responsabilités). Nous allons donc coder un **"action creator"** (fonction de création d'action) :
@@ -110,7 +110,7 @@ L'objectif de ce TP est d'apprendre à structurer l'application et à gérer eff
 	+ Dans cette fonction anonyme, lancer l'appel ajax avec superagent vers le webservice `api/videos`
 	+ Notifier le store (à l'aide de la fonction `dispatch()`) de la réception des données une fois l'appel ajax terminé en renseignant la propriété `videos` de l'action dispatchée avec le tableau retourné par le webservice.
 
-***Ca y est ! Vous pouvez à nouveau tester l'application, cette fois l'appel ajax doit se lancer et le résultat s'afficher dans la VideoList.*** :sweat_smile:
+***Ca y est ! Vous pouvez à nouveau tester l'application, cette fois l'appel ajax doit se lancer et le résultat s'afficher dans la VideoList. Au niveau fonctionnel, rien n'a changé, mais du point de vue architecture et robustesse du code, on se sent bien mieux !*** :sweat_smile:
 <br>*Noter dans Redux Devtools l'apparition de l'action et le résultat sur le state.*
 <br>**Si vous avez survécu jusque là, bravo !** :beers:
 
