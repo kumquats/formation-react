@@ -31,7 +31,7 @@ class Video extends React.Component {
 		this.handleCommentInputChange = this.handleCommentInputChange.bind( this );
 	}
 
-	componentWillMount(){
+	componentDidMount(){
 		this.props.fetchVideo(this.id);
 		this.props.fetchComments(this.id);
 	}

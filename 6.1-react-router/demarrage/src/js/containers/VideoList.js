@@ -22,7 +22,7 @@ function mapDispatchToProps( dispatch )
 
 class VideoList extends React.Component {
 
-	componentWillMount(){
+	componentDidMount(){
 		this.props.fetchVideos();
 	}
 
@@ -40,7 +40,7 @@ class VideoList extends React.Component {
 
 	renderVideos() {
 		return this.props.videos.map( ( video ) => {
-			return <VideoItem key={video.id} video={video} />
+			return <VideoItem key={video.id} video={video} />;
 		});
 	}
 }
