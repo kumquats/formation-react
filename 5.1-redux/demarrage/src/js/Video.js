@@ -1,6 +1,5 @@
 import React from 'react';
 import request from 'superagent';
-import config from 'config';
 
 
 class Video extends React.Component {
@@ -55,14 +54,17 @@ class Video extends React.Component {
 		return (
 			<div className="row marketing">
 				<div className="col-sm-12 col-md-12">
-					<div className="thumbnail">
+					<div className="video-detail">
 						<div className="caption">
 							<video
 								style={{ width: '100%', backgroundColor: 'black' }}
 								ref={el => this.video = el}
 								height="300"
 								controls
-								src={this.state.video && './uploads/' + this.state.video.file}
+								src={
+									this.state.video &&
+									'./uploads/' + this.state.video.file
+								}
 							>
 							</video>
 							<h3>{this.state.video ? this.state.video.title : 'Chargement en cours'}</h3>
@@ -86,7 +88,7 @@ class Video extends React.Component {
 							{!this.state.newCommentLoading ? 'Envoyer' : 'Envoi en cours...'}
 						  </button>
 						</form>
-						<div>
+						<div className="comments">
 							<h4>Commentaires: </h4>
 							{ this.renderComments() }
 						</div>

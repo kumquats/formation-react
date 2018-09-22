@@ -6,9 +6,9 @@ const VideoItem = props => (
 		<a href="#">
 			<div className="media-left">
 				<img className="media-object"
-					alt="cat" src={'http://placeimg.com/120/70/animals?r='+props.video.id}
-					width="120"
-					height="70" />
+					alt="cat" src={'http://placeimg.com/246/138/animals?r='+props.video.id}
+					width="246"
+					height="138" />
 			</div>
 			<div className="media-body">
 				<h4 className="media-heading">{props.video.title}</h4>
@@ -18,9 +18,8 @@ const VideoItem = props => (
 	</li>
 );
 VideoItem.propTypes = {
-	// La prop color doit être une string
 	video: PropTypes.shape({
-		id: PropTypes.string.isRequired,
+		id: PropTypes.number.isRequired,
 		title: PropTypes.string,
 		description: PropTypes.string,
 	}).isRequired

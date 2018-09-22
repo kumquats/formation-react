@@ -18,13 +18,16 @@ class Video extends React.Component {
 		return (
 			<div className="row marketing">
 				<div className="col-sm-12 col-md-12">
-					<div className="thumbnail">
+					<div className="video-detail">
 						<div className="caption">
 							<video
 								style={{ width: '100%', backgroundColor: 'black' }}
 								height="300"
 								controls
-								src={this.state.video && './uploads/' + this.state.video.file}
+								src={
+									this.state.video &&
+									'./uploads/' + this.state.video.file
+								}
 							>
 							</video>
 							<h3>{this.state.video && this.state.video.title}</h3>

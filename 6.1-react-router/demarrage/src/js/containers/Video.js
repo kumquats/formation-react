@@ -52,14 +52,17 @@ class Video extends React.Component {
 		return (
 			<div className="row marketing">
 				<div className="col-sm-12 col-md-12">
-					<div className="thumbnail">
+					<div className="video-detail">
 						<div className="caption">
 							<video
 								style={{ width: '100%', backgroundColor: 'black' }}
 								ref={el => this.video = el}
 								height="300"
 								controls
-								src={this.props.video && './uploads/' + this.props.video.file}
+								src={
+									this.props.video &&
+									'./uploads/' + this.props.video.file
+								}
 							>
 							</video>
 							<h3>{this.props.video ? this.props.video.title : 'Chargement en cours'}</h3>
@@ -83,7 +86,7 @@ class Video extends React.Component {
 							{!this.props.newComment.isLoading ? 'Envoyer' : 'Envoi en cours...'}
 						  </button>
 						</form>
-						<div>
+						<div className="comments">
 							<h4>Commentaires: </h4>
 							{ this.renderComments() }
 						</div>
