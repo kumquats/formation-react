@@ -23,6 +23,10 @@ body {
 #appContainer {
 	padding-top: 80px;
 }
+.row.marketing {
+	margin: 0 auto;
+	max-width: 900px;
+}
 .video-detail, .media-list {
 	background: #fff;
 	padding-top: 20px 0;
