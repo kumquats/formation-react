@@ -1,26 +1,26 @@
-// Fichier server/index.js
 
 import express from 'express';
 import React from 'react';
-// On récupère la fonction "renderToString" de "react-dom"
-import { renderToString } from 'react-dom/server';
-import { matchPath } from 'react-router';
-import { connectRouter, routerMiddleware, ConnectedRouter } from 'connected-react-router';
-import { createMemoryHistory } from 'history';
-import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
+import { matchPath } from 'react-router';
+import { connectRouter, routerMiddleware, ConnectedRouter } from 'connected-react-router';
+import { renderToString } from 'react-dom/server';
+import { createMemoryHistory } from 'history';
+import thunk from 'redux-thunk';
 
-// On récupère les routes
+// template de la page html à générer
+import page from './page';
+
+// on importe les classes de notre application qui seront nécessaires au rendu de la page
 import routes from '../routes';
 import reducer from '../reducers';
-import page from './page';
 import Layout from '../containers/Layout';
-import config from 'config';
 
+// on crée une instance de serveur http express
 const app = express();
 
-// On crée une route pour les fichiers statiques
+// On crée des routes pour les fichiers statiques
 // (js,css,images, etc...)
 app.use('/public', express.static('./../site/web'));
 app.use('/uploads', express.static('./../site/web/uploads'));
@@ -36,8 +36,9 @@ app.get(/^\/.*/, (req, res, next) => {
 		applyMiddleware( thunk, routerMiddleware( memoryHistory ) )
 	);
 
-	// On utilise la fonction matchPath de React Router
-	// pour récupérer la route qui match l'URL demandée
+	// On teste l'url demandée (req.path) avec les différentes routes de l'application
+	// On utilise pour ça la fonction matchPath de React Router
+	// Dès qu'une route correspond à l'url demandée, on note la méthode fetchData pour exécution ultérieure
 	const promises = [];
 	const routeFound = routes.some( route => {
 		const match = matchPath( req.path, route );
@@ -67,5 +68,6 @@ app.get(/^\/.*/, (req, res, next) => {
 
 // On lance le serveur et on écoute le port 3333
 app.listen(3333, function () {
-	console.log('l\'appli Reactube est lancée sur le port 3333, testez la sur http://localhost:3333 !');
+	console.log(`l'appli Reactube est lancée sur le port 3333,
+	testez la sur http://localhost:3333 !`);
 });
