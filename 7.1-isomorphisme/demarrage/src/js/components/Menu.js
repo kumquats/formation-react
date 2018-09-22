@@ -4,19 +4,26 @@ import { Link } from 'react-router-dom';
 export default class Menu extends Component {
 	render() {
 		return (
-			<div className="header clearfix">
-				<nav>
-					<ul className="nav nav-pills pull-right">
-						<li role="presentation">
-							<Link to="/">Liste des vidéos</Link>
-						</li>
-						<li role="presentation">
-							<Link to="/videos/new">Ajouter une vidéo</Link>
-						</li>
-					</ul>
+			<header>
+				<nav className="navbar navbar-inverse navbar-fixed-top">
+					<div className="container">
+						<div className="navbar-header">
+							<Link to="/" className="navbar-brand">
+								<i className="glyphicon glyphicon-film" style={{marginRight:'10px'}}></i>
+								Reactube
+							</Link>
+						</div>
+						<ul className="nav navbar-nav navbar-right">
+							<li>
+								<Link to="/">Liste des vidéos</Link>
+							</li>
+							<li>
+								<Link to="/videos/new">Ajouter une vidéo</Link>
+							</li>
+						</ul>
+					</div>
 				</nav>
-				<h3 className="text-muted">REACT - YouTube Killer</h3>
-			</div>
+			</header>
 		);
 	}
 }
