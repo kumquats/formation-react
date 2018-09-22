@@ -59,7 +59,7 @@ class Video extends React.Component {
 		return (
 			<div className="row marketing">
 				<div className="col-sm-12 col-md-12">
-					<div className="thumbnail">
+					<div className="video-detail">
 						<div className="caption">
 							<video
 								style={{ width: '100%', backgroundColor: 'black' }}
@@ -93,7 +93,7 @@ class Video extends React.Component {
 							{!this.props.newComment.isLoading ? 'Envoyer' : 'Envoi en cours...'}
 						  </button>
 						</form>
-						<div>
+						<div className="comments">
 							<h4>Commentaires: </h4>
 							{ this.renderComments() }
 						</div>
