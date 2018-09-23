@@ -94,9 +94,9 @@ Rendre l'application dans la balise d'id `appContainer`.
             <li class="media">
                 <div class="media-left">
                     <img class="media-object"
-                        alt="cat" src='http://placeimg.com/120/70/animals?r=0.1267489'
-                        width="120"
-                        height="70" />
+                        alt="cat" src='http://placeimg.com/246/138/animals?r=0.1267489'
+                        width="246"
+						height="138" />
                 </div>
                 <div class="media-body">
                     <h4 class="media-heading"></h4>
