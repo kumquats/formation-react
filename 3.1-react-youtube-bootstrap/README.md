@@ -68,7 +68,7 @@ Rendre l'application dans la balise d'id `appContainer`.
 ```html
 <div class="row marketing">
     <div class="col-sm-12 col-md-12">
-        <div class="thumbnail">
+        <div class="video-detail">
             <div class="caption">
                 <video
                     style="width:100%; background-color:black"

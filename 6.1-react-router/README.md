@@ -13,7 +13,7 @@ npm install --save react-router react-router-dom connected-react-router
 - Consulter la documentation de ["react-router"](https://github.com/ReactTraining/react-router/)
 
 ## Instructions
-1. **Créer un composant `Layout` dans le dossier `js/containers`** : dans la méthode `render()` utiliser les composants `<Switch>` et `<Route>` de react-router pour configurer le routing de l'application :
+1. **Créer un composant `Layout` dans le dossier `js/containers`** (cf. [Proposition de Markup](#proposition-de-markup)) : dans la méthode `render()` utiliser les composants `<Switch>` et `<Route>` de react-router pour configurer le routing de l'application :
 	- une **Route** d'URL **"/"** associée à `VideoList`
 	- une **Route** d'URL **"/videos/new"** associée à `VideoForm`
 	- une **Route** d'URL **"/videos/:id"** associée à `Video`
@@ -32,7 +32,7 @@ npm install --save react-router react-router-dom connected-react-router
 4. **Modifier le composant `VideoItem` pour permettre à l'utilisateur, lorsqu'il clique sur un VideoItem, d'afficher la page détail de la vidéo associée** grâce au compostant `<Link>` de `react-router-dom`
 
 ## Pour aller plus loin
-- **Créer un composant `Menu` dans le dossier `js/components`**
+- **Créer un composant `Menu` dans le dossier `js/components`** (cf. [Proposition de Markup](#proposition-de-markup))
     + Dans la méthode `render()`, retourner deux liens grâce au compostant `<Link>` de **"react-router"** :
         * Un lien vers la page d'accueil (**VideoList**)
         * Un lien vers la page de création de vidéo (**VideoForm**)
@@ -49,17 +49,24 @@ npm install --save react-router react-router-dom connected-react-router
 
 **Menu :**
 ```html
-<div class="header clearfix">
-    <nav>
-        <ul class="nav nav-pills pull-right">
-            <li role="presentation">
-                <a href="#">Liste des vidéos</a>
-            </li>
-            <li role="presentation">
-                <a href="#">Ajouter une vidéo</a>
-            </li>
-        </ul>
-    </nav>
-    <h3 class="text-muted">REACT - YouTube Killer</h3>
-</div>
+<header>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="#" class="navbar-brand">
+					<i class="glyphicon glyphicon-film" style="margin-right:10px"></i>
+					Reactube
+				</a>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href="#">Liste des vidéos</a>
+				</li>
+				<li>
+					<a href="#">Ajouter une vidéo</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</header>
 ```
