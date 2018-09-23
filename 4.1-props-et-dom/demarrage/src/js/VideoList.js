@@ -8,33 +8,39 @@ class VideoList extends React.Component {
 			videos: [
 				{
 					id: 1,
-					title:"Video 1" ,
-					description:"Succulents beard stumptown brunch deep v biodiesel street art, pour-over banjo. Fixie keffiyeh chia, banjo whatever snackwave skateboard poke man bun man braid hammock pickled. Semiotics disrupt marfa migas kombucha, authentic activated charcoal microdosing readymade hell of edison bulb locavore.",
-					file: "video1.mp4"
+					title:'Le Top 10 des framework JS',
+					description:'Vous n\'en croirez pas vos yeux',
+					file: 'video1.mp4'
 				},
 				{
 					id: 2,
-					title:"Video 2" ,
-					description:"Mlkshk copper mug humblebrag hashtag, messenger bag 3 wolf moon woke. Helvetica skateboard blog, flexitarian street art cornhole truffaut listicle blue bottle 90's yuccie mustache. ",
-					file: "video2.mp4"
+					title:'5 bonnes raisons de ne pas fuir cette formation',
+					description:'Vous allez halluciner ! Cliquez vite !',
+					file: 'video2.mp4'
 				},
 				{
 					id: 3,
-					title:"Video 3" ,
-					description:"Whatever intelligentsia vape, microdosing butcher VHS chillwave williamsburg brunch vaporware hella drinking vinegar raclette tilde.",
-					file: "video3.mp4"
+					title:'Les plus grands secrets des développeurs React',
+					description:'Cliquez et découvrez avant les autres ces astuces incroyables !',
+					file: 'video3.mp4'
 				},
 				{
 					id: 4,
-					title:"Video 4" ,
-					description:"90's typewriter lo-fi slow-carb farm-to-table, tofu forage pabst salvia affogato artisan vice humblebrag four loko everyday carry.",
-					file: "video4.mp4"
+					title:'Votre DSI ne veut pas que vous voyiez cette vidéo !',
+					description:'Les experts sont formels : cette méthode de développement mystérieuse va changer votre vie.',
+					file: 'video1.mp4'
 				},
 				{
 					id: 5,
-					title:"Video 5" ,
-					description:"Disrupt cred schlitz, crucifix pabst hashtag vaporware vape glossier brunch keytar. Jean shorts ramps fingerstache PBR&B, fap af typewriter pinterest beard umami. Humblebrag celiac lo-fi",
-					file: "video5.mp4"
+					title:'Les gens vous supplieront de développer leur appli !',
+					description:'Visionnez cette vidéo au plus vite et apprenez les 1022 méthodes de développement les plus rentables.',
+					file: 'video2.mp4'
+				},
+				{
+					id: 6,
+					title:'Les 12 techniques imparables pour rater un café' ,
+					description:'Vous en avez marre de tout réussir ? Ratez aux moins les cafés grâce à cette vidéo inédite !',
+					file: 'video3.mp4'
 				}
 			],
 		}
@@ -57,10 +63,10 @@ class VideoList extends React.Component {
 			return (
 				<li key={video.id} className="media">
 					<div className="media-left">
-						<img className="media-object"
-							alt="cat" src={'http://placeimg.com/120/70/animals?r='+video.id}
-							width="120"
-							height="70" />
+					<img className="media-object"
+						alt="cat" src={'http://placeimg.com/246/138/animals?r='+video.id}
+						width="246"
+						height="138" />
 					</div>
 					<div className="media-body">
 						<h4 className="media-heading">{video.title}</h4>

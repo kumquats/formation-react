@@ -13,10 +13,12 @@ ALTER TABLE `video` CHANGE `title` `title` VARCHAR(255) CHARACTER SET utf8 COLLA
 ALTER TABLE `video` ADD `likes` INT NULL AFTER `file`, ADD `dislikes` INT NULL AFTER `likes`;
 
 INSERT INTO `video` (`id`, `created_at`, `title`, `description`, `file`, `likes`, `dislikes`) VALUES
-(1, '2016-12-01 09:56:15', 'Vidéo 1', 'Succulents beard stumptown brunch deep v biodiesel street art, pour-over banjo. Fixie keffiyeh chia, banjo whatever snackwave skateboard poke man bun man braid hammock pickled.', 'video1.mp4', 0, 1),
-(2, '2016-12-08 14:09:35', 'Vidéo 2', 'Mlkshk copper mug humblebrag hashtag, messenger bag 3 wolf moon woke. Helvetica skateboard blog, flexitarian street art cornhole truffaut listicle blue bottle 90''s yuccie mustache.', 'video2.mp4', 0, 1),
-(3, '2016-12-17 21:17:59', 'Vidéo 3', 'Sartorial semiotics vinyl, vaporware polaroid post-ironic small batch typewriter jean shorts tousled freegan schlitz art party actually cornhole. ', 'video1.mp4', NULL, NULL),
-(4, '2016-12-18 08:53:35', 'Vidéo 4', '90''s typewriter lo-fi slow-carb farm-to-table, tofu forage pabst salvia affogato artisan vice humblebrag four loko everyday carry.', 'video2.mp4', NULL, NULL);
+(1, '2018-08-30 13:40:31', 'Le Top 10 des framework JS', "Vous n'en croirez pas vos yeux", 'video1.mp4', NULL, NULL),
+(2, '2018-07-21 08:08:30', '5 bonnes raisons de ne pas fuir cette formation', 'Vous allez halluciner ! Cliquez vite !', 'video2.mp4', NULL, NULL),
+(3, '2018-05-21 09:59:14', 'Les plus grands secrets des développeurs React', 'Cliquez et découvrez avant les autres ces astuces incroyables !', 'video3.mp4', NULL, NULL),
+(4, '2018-04-21 14:19:15', 'Votre DSI ne veut pas que vous voyiez cette vidéo !', 'Les experts sont formels : cette méthode de développement mystérieuse va changer votre vie.', 'video1.mp4', NULL, NULL),
+(5, '2018-03-21 15:27:33', 'Les gens vous supplieront de développer leur appli !', 'Visionnez cette vidéo au plus vite et apprenez les 1022 méthodes de développement les plus rentables.', 'video2.mp4', NULL, NULL),
+(6, '2018-02-21 15:32:50', 'Les 12 techniques imparables pour rater un café', 'Vous en avez marre de tout réussir ? Ratez aux moins les cafés grâce à cette vidéo inédite !', 'video3.mp4', NULL, NULL);
 
 
 CREATE TABLE `comment` (

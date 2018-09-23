@@ -7,8 +7,8 @@ class Video extends React.Component {
 		this.state = {
 			video: {
 				id: 1,
-				title:"Video 1" ,
-				description:"Succulents beard stumptown brunch deep v biodiesel street art, pour-over banjo. Fixie keffiyeh chia, banjo whatever snackwave skateboard poke man bun man braid hammock pickled. Semiotics disrupt marfa migas kombucha, authentic activated charcoal microdosing readymade hell of edison bulb locavore.",
+				title:'Le Top 10 des framework JS' ,
+				description:'Vous n\'en croirez pas vos yeux',
 				file: "video1.mp4"
 			}
 		};
