@@ -38,7 +38,7 @@ $app->get('/videos/{id}', function () use ($app) {
 });
 
 $app->get('/api/videos', function () use ($app) {
-    return $app->json($app['db']->fetchAll('SELECT * FROM video WHERE 1 ORDER BY id DESC'));
+	return $app->json($app['db']->fetchAll('SELECT * FROM video WHERE 1 ORDER BY id DESC'))->setEncodingOptions(JSON_NUMERIC_CHECK);
 });
 
 $app->post('/api/videos', function (Request $request) use ($app) {
