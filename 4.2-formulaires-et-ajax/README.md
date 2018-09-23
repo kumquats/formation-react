@@ -18,19 +18,19 @@ Connecter l'application à des webservices et utiliser les formulaires avec Reac
 
 ## Instructions
 1. Dans `VideoList` remplacer l'utilisation des videos en dur par des données dynamiques : faire un appel GET vers le webservice `config.apiPath+"/videos"` pour récupérer la liste des vidéos depuis la base de données.
-2. Dans `Video` appeler le webservice GET `config.apiPath + "/videos/:id"` à l'affichage du composant (*NB: pour le moment mettre l'id en dur dans la classe) et mettre à jour le DOM une fois les données récupérées.
-
-## Pour aller plus loin
-- Dans la **Video**, créer une méthode `fetchComments` qui appelle le webservice GET `config.apiPath + "/videos/:id/comments"` et afficher la liste des commentaires reçus en dessous de la vidéo (cf. [Proposition de Markup](#proposition-de-markup)).
-- Au dessus des commentaires, créer un formulaire contenant :
-    + un textarea
-    + un input submit
-- Enregistrer le commentaire saisi par l'utilisateur en appelant le webservice POST `config.apiPath + "/videos/:id/comments"`  et mettre à jour la liste des commentaires
-- créer un nouveau composant `VideoForm` qui permet d'enregistrer une nouvelle vidéo. Le composant est constitué d'un formulaire avec les champs suivants :
+2. créer un nouveau composant `VideoForm` qui permet d'enregistrer une nouvelle vidéo. Le composant est constitué d'un formulaire avec les champs suivants :
         * Titre: type texte
         * Description: textarea
         * Fichier: type file
 		* au submit envoyer la vidéo au webservice POST `config.apiPath + "/videos"`
+
+## Pour aller plus loin
+- Dans `Video` appeler le webservice GET `config.apiPath + "/videos/:id"` à l'affichage du composant (*NB: pour le moment mettre l'id en dur dans la classe) et mettre à jour le DOM une fois les données récupérées.
+- Dans la `Video`, créer une méthode `fetchComments` qui appelle le webservice GET `config.apiPath + "/videos/:id/comments"` et afficher la liste des commentaires reçus en dessous de la vidéo (cf. [Proposition de Markup](#proposition-de-markup)).
+- Au dessus des commentaires, créer un formulaire contenant :
+    + un textarea
+    + un input submit
+- Enregistrer le commentaire saisi par l'utilisateur en appelant le webservice POST `config.apiPath + "/videos/:id/comments"`  et mettre à jour la liste des commentaires
 - Dans les formulaires d'ajout de vidéo et de saisie d'un nouveau commentaire, vider les champs de saisie une fois les données enregistrées
 - afficher des messages de loading et désactiver les formulaires pendant que les appels webservice se font
 - ajouter une animation d'apparition des nouveaux commentaires
