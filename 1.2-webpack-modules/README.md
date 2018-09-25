@@ -51,7 +51,7 @@ L'objectif de ce TP est de mettre en place la base d'un projet utilisant le gest
 	+ Y inclure une structure html de base
     + Inclure le fichier `./build/app.bundle.js` dans la page
 	+ Tester la page `index.html` dans le navigateur et vérifier que la fonction helloWorld() affiche bien un message dans la console
-6. **Configurer webpack pour générer des fichiers source-maps**
+6. **Configurer webpack pour générer des fichiers source-maps** à l'aide de la clé de configuration "devtool" (cf. documentation : https://webpack.js.org/configuration/devtool/)
 7. **Passer du mode "production" (par défaut) au mode "development"** (cf. https://webpack.js.org/concepts/mode/) et constater la différence sur le fichier `app.bundle.js`
 
 ## Pour aller plus loin
