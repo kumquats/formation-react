@@ -10,6 +10,7 @@ Connecter l'application à des webservices et utiliser les formulaires avec Reac
 - vérifier la configuration de PHP afin de s'assurer que le serveur autorise l'upload de fichiers volumineux (pour permettre l'upload de vidéos) :
 	+ ouvrir le fichier `php.ini` en cliquant sur le bouton "config" de la ligne "Apache" puis "PHP (php.ini)"
 	+ rechercher dans le fichier les valeurs `upload_max_filesize` et `post_max_size` et les passer toutes les deux à la valeur "20M" (qui signifie 20 Mo)
+	+ relancer ensuite Apache pour prendre en compte les changements en appuyant sur "Stop" puis "Start" dans le panneau Xampp
 - si vous inspectez le code de la page html générée par le serveur, vous constaterez une balise `<script>` contenant un objet `config` généré par PHP et contenant des chemins qui seront utiles pour le développement. Pour pouvoir utiliser cette variable, ajouter la configuration suivante au `webpack.config.js` :
 	```
 	externals: {
