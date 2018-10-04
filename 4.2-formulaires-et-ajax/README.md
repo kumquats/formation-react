@@ -37,8 +37,7 @@ Connecter l'application à des webservices et utiliser les formulaires avec Reac
 - Enregistrer le commentaire saisi par l'utilisateur en appelant le webservice POST `config.apiPath + "/videos/:id/comments"`  et mettre à jour la liste des commentaires
 - Dans les formulaires d'ajout de vidéo et de saisie d'un nouveau commentaire, vider les champs de saisie une fois les données enregistrées
 - afficher des messages de loading et désactiver les formulaires pendant que les appels webservice se font
-- ajouter une animation d'apparition des nouveaux commentaires
-- Sur le composant **Video** ajouter des boutons "like" / "dislike" envoyant chacun un POST vers `config.apiPath + "/videos/:id/{likes|dislikes}"`.
+
 
 ## Proposition de Markup
 **Commentaires**
