@@ -8,8 +8,6 @@ class Component {
 	/**
 	 * Constructeur du composant.
 	 * Permet de l'initialiser avec son tagName, une liste d'attributs et des enfants.
-	 * Les attributs et les enfants peuvent être modifiés par la suite
-	 * à l'aide des fonctions setAttribute et appendChild
 	 * @param  {String} tagName    Nom de la balise html à générer
 	 * @param  {Object} attributes Liste des attributs html à ajouter sous la forme de paires clé:valeur
 	 * @param  {Array}  children   Liste des enfants du composant. Chaque enfant peut être un autre Component ou une String.
@@ -19,29 +17,6 @@ class Component {
 		this.tagName = tagName;
 		this.attributes = attributes;
 		this.children = children;
-	}
-
-	/**
-	 * Ajoute ou remplace un attribut.
-	 * @param {String} name  Clé de l'attribut à modifier/ajouter
-	 * @param {String} value valeur de l'attribut
-	 * @see #getAttribute()
-	 * @see #constructor()
-	 */
-	setAttribute( name, value ) {
-		this.attributes[ name ] = value;
-	}
-
-	getAttribute( name ) {
-		return this.attributes[ name ];
-	}
-
-	getTagName() {
-		return this.tagName;
-	}
-
-	appendChild( child ) {
-		this.children.push( child );
 	}
 
 	/**
@@ -97,7 +72,7 @@ class RoundedRedButton extends Button {
 				style: 'border-radius: 5px; color: white; background-color: red',
 				...attributes
 			}
-			// ici on utilise l'opérateur rest
+			// ici on utilise l'opérateur rest/spread
 			// nécessite le plugin @babel/plugin-proposal-object-rest-spread
 			// @see https://babeljs.io/docs/plugins/
 			// @see https://babeljs.io/docs/en/babel-plugin-proposal-object-rest-spread
