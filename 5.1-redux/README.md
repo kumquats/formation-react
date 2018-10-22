@@ -35,10 +35,10 @@ L'objectif de ce TP est d'apprendre à structurer l'application et à gérer eff
 
 1. **Créer un fichier `reducers/index.js` et y coder le state par défaut de l'application** :
 	+ Créer une constante `defaultState`
-	+ lui affecter comme valeur un objet avec une propriété `videos` qui remplacera le state de la `VideoList`.
+	+ lui affecter comme valeur un objet avec une propriété `videos` de valeur tableau vide (`[]`) et qui vise à remplacer le state de la `VideoList`.
 	+ exporter une fonction anonyme qui prend en paramètre
-		* un objet `state` avec comme valeur par défaut la constante `defaultState`,
-		* et un objet `action` qui correspondra à l'action dispatchée par l'action creator
+		* un objet `state` avec comme valeur par défaut la constante `defaultState`  définie juste au dessus,
+		* et un objet `action` qui recevra l'action dispatchée par l'action creator
 	+ cette fonction retournera le state reçu en paramètre sans lui appliquer de modifications (pour l'instant !)
 
 2. **Connecter `VideoList` au store** :
@@ -63,7 +63,7 @@ L'objectif de ce TP est d'apprendre à structurer l'application et à gérer eff
 	const store = createStore( reducer, composeEnhancers() );
 	```
 	*(Plus d'infos sur l'installation et la configuration de Redux Devtools : https://github.com/zalmoxisus/redux-devtools-extension)*<br>
-	Une fois configurée, ouvrir notre site dans chrome, et dans les outils de développement, afficher l'onglet "Redux". Vous pouvez constater qu'il est possible de voir les actions qui sont lancées (pour le moment une seule) et d'inspecter l'état du state global.
+	Une fois Redux Devtools configuré, ouvrir notre site dans chrome, et dans les outils de développement, afficher l'onglet "Redux". Vous pouvez constater qu'il est possible de voir les actions qui sont lancées (pour le moment une seule) et d'inspecter l'état du state global.
 
 2. **Au lieu de mettre en dur la liste des vidéos dans le `reducer`, nous allons démarrer avec un state par défaut vide**. C'est l'action que nous allons créer qui lui enverra la liste des vidéos : Remettre un tableau vide comme state par défaut dans le `reducer`.
 
