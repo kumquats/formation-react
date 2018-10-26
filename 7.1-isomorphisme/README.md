@@ -26,7 +26,7 @@ L'objectif de ce TP est d'optimiser le temps de chargement et le référencement
 			return request
 				.get(...)
 	```
-3. **Modifier les composants `VideoList` et `Video` afin de leur faire implémenter la méthode statique `fetchData`.** *Attention: dans le cas du composant `Video` deux actions différentes sont appelées ([indice](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Promise/all)).*
+3. **Modifier les composants `VideoList` et `VideoDetail` afin de leur faire implémenter la méthode statique `fetchData`.** *Attention: dans le cas du composant `VideoDetail` deux actions différentes sont appelées ([indice](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Promise/all)).*
 4. **Externaliser les routes dans un fichier `src/js/routes.js` de manière à les partager entre le code côté serveur et côté front** :
 	+ exporter un tableau contenant des objets littéraux (1 par route) reprenant les propriétés des composants `<Route>` : `path`, `component`, `exact`
 	+ importer ce tableau dans le composant `Layout` et boucler dessus pour générer dynamiquement les composants `<Route>` à l'intérieur du `<Switch>`

@@ -2,7 +2,7 @@ import React from 'react';
 import VideoItem from './VideoItem';
 import videos from './videos';
 
-class VideoList extends React.Component {
+export default class VideoList extends React.Component {
 
 	constructor(){
 		super();
@@ -32,5 +32,3 @@ class VideoList extends React.Component {
 	}
 
 }
-
-export default VideoList;

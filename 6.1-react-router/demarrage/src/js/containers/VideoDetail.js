@@ -22,7 +22,7 @@ function mapDispatchToProps( dispatch )
 }
 
 
-class Video extends React.Component {
+class VideoDetail extends React.Component {
 
 	constructor() {
 		super();
@@ -123,4 +123,4 @@ class Video extends React.Component {
 
 }
 
-export default connect( mapStateToProps, mapDispatchToProps)( Video );
+export default connect( mapStateToProps, mapDispatchToProps )( VideoDetail );

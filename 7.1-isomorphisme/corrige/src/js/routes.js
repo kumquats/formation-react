@@ -1,6 +1,6 @@
 import VideoList from "./containers/VideoList";
 import VideoForm from "./containers/VideoForm";
-import Video from "./containers/Video";
+import VideoDetail from "./containers/VideoDetail";
 
 const routes = [
 	{
@@ -15,7 +15,7 @@ const routes = [
 	},
 	{
 		path: '/videos/:id',
-		component: Video,
+		component: VideoDetail,
 		exact: true
 	},
 ];

@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Video extends React.Component {
+export default class VideoDetail extends React.Component {
 
 	constructor() {
 		super();
@@ -38,7 +38,4 @@ class Video extends React.Component {
 			</div>
 		);
 	}
-
 }
-
-export default Video;

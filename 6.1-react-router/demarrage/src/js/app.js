@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from "redux";
 
-import Video from './containers/Video';
+import VideoDetail from './containers/VideoDetail';
 import VideoList from './containers/VideoList';
 import VideoForm from './containers/VideoForm';
 import reducer from "./reducers";
@@ -18,7 +18,7 @@ const store = configureStore();
 
 ReactDOM.render(
 	<Provider store={store}>
-		<Video />
+		<VideoDetail />
 	</Provider>
 /*
 		<VideoList />

@@ -1,8 +1,5 @@
 import React from 'react';
 import { Switch, Route, withRouter } from 'react-router';
-import VideoList from './VideoList';
-import VideoForm from './VideoForm';
-import Video from './Video';
 import Menu from '../components/Menu';
 import routes from '../routes';
 

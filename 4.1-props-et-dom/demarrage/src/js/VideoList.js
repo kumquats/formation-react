@@ -1,6 +1,6 @@
 import React from 'react';
 
-class VideoList extends React.Component {
+export default class VideoList extends React.Component {
 
 	constructor(){
 		super();
@@ -78,5 +78,3 @@ class VideoList extends React.Component {
 	}
 
 }
-
-export default VideoList;

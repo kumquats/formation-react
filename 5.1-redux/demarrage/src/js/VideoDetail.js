@@ -2,7 +2,7 @@ import React from 'react';
 import request from 'superagent';
 
 
-class Video extends React.Component {
+export default class VideoDetail extends React.Component {
 
 	constructor() {
 		super();
@@ -130,5 +130,3 @@ class Video extends React.Component {
 	}
 
 }
-
-export default Video;

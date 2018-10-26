@@ -16,7 +16,7 @@ npm install --save react-router react-router-dom connected-react-router
 1. **Créer un composant `Layout` dans le dossier `js/containers`** (cf. [Proposition de Markup](#proposition-de-markup)) : dans la méthode `render()` utiliser les composants `<Switch>` et `<Route>` de react-router pour configurer le routing de l'application :
 	- une **Route** d'URL **"/"** associée à `VideoList`
 	- une **Route** d'URL **"/videos/new"** associée à `VideoForm`
-	- une **Route** d'URL **"/videos/:id"** associée à `Video`
+	- une **Route** d'URL **"/videos/:id"** associée à `VideoDetail`
 	- ne pas oublier l'utilisation du décorateur `withRouter()` dans l'export de la classe !
 
 2. **Dans le fichier `js/app.js`**

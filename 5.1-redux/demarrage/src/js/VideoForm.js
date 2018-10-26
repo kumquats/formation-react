@@ -3,7 +3,7 @@ import request from 'superagent';
 import config from 'config';
 
 
-class VideoForm extends React.Component {
+export default class VideoForm extends React.Component {
 
 	constructor(){
 		super();
@@ -67,5 +67,3 @@ class VideoForm extends React.Component {
 	}
 
 }
-
-export default VideoForm;

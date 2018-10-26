@@ -15,5 +15,5 @@ Travailler sur plusieurs aspects du chapitre "Interactivité des composants" :
 
 ## Pour aller plus loin
 - Vérifier que le `VideoItem` reçoit bien une video à l'aide des **PropTypes**
-- Dans le composant `Video` ajouter un bouton qui permet de changer de vidéo (passe à la vidéo suivante de la liste)
-- Lancer automatiquement la lecture de la vidéo lorsqu'on arrive sur la page `Video` ou qu'on change de vidéo.
+- Dans le composant `VideoDetail` ajouter un bouton qui permet de changer de vidéo (passe à la vidéo suivante de la liste)
+- Lancer automatiquement la lecture de la vidéo lorsqu'on arrive sur la page `VideoDetail` ou qu'on change de vidéo.

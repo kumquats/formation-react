@@ -115,9 +115,9 @@ L'objectif de ce TP est d'apprendre à structurer l'application et à gérer eff
 <br>**Si vous avez survécu jusque là, bravo !** :beers:
 
 ## Pour aller plus loin
-- Convertir à leur tour Video et VideoForm à Redux :
-	+ Ajouter un state et des reducers pour chaque donnée actuellement dans le state de ces 2 composants, à savoir la vidéo courante de `Video`, les commentaires, le commentaire ajouté dans le formulaire, et la vidéo ajoutée par le `VideoForm`.
-	+ Modifier les composants `Video` et `VideoForm` pour utiliser le state global au lieu du state local (`this.state`) et des action creators à la place de l'appel ajax.
+- Convertir à leur tour `VideoDetail` et `VideoForm` à Redux :
+	+ Ajouter un state et des reducers pour chaque donnée actuellement dans le state de ces 2 composants, à savoir la vidéo courante de `VideoDetail`, les commentaires, le commentaire ajouté dans le formulaire, et la vidéo ajoutée par le `VideoForm`.
+	+ Modifier les composants `VideoDetail` et `VideoForm` pour utiliser le state global au lieu du state local (`this.state`) et des action creators à la place de l'appel ajax.
 - Utiliser la fonction `combineReducers` pour clarifier l'organisation du reducer.
 - Externaliser le code de création du store dans un fichier `store/configureStore.js`
 - Utiliser la fonction `mapDispatchToProps()` pour simplifier le lancement des action creators.

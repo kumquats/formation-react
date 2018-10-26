@@ -28,9 +28,9 @@ output: {
 	+ et le dossier `src/build`
 
 ## Instructions
-1. **Modifier le fichier `src/js/app.js` pour initialiser une application React contenant un composant unique `Video`**<br>
+1. **Modifier le fichier `src/js/app.js` pour initialiser une application React contenant un composant unique `VideoDetail`**<br>
 Rendre l'application dans la balise d'id `appContainer`.
-3. **Créer le composant `Video` dans le dossier `src/js`.** Ce composant :
+3. **Créer le composant `VideoDetail` dans le dossier `src/js`.** Ce composant :
     + dispose d'un state `video` de la forme :
 	```js
 	{
@@ -42,25 +42,23 @@ Rendre l'application dans la balise d'id `appContainer`.
 	```
     + doit afficher le titre & la description de la vidéo contenue dans son state (cf. [Proposition de DOM](#proposition-de-dom))
     + doit afficher une balise video dont la source correspond à la propriété `file` du state `video`
-
 3. **Tester l'application sur `http://<votre-url-projet>/site/web`**
 
 
 
 ## Pour aller plus loin
 1. **Créer un composant `VideoList`** :
-- Modifier le fichier `app.js` pour afficher ce composant à la place du composant `Video`
-- Ajouter un state avec une propriété `videos` qui contient une liste d'objets video (même format que le state `video` du composant `Video`)
-- Afficher la liste des vidéos qui se trouvent dans son state
-- Chaque vidéo de la liste est représentée par son titre et une vignette fictive (en manque d'inspiration ? Jetez un oeil à http://placeimg.com/)
+	- Modifier le fichier `app.js` pour afficher ce composant à la place du composant `VideoDetail`
+	- Initialiser le composant `VideoList` avec un state comprenant une propriété `videos` qui elle même contient une liste d'objets video (même format que le state `video` du composant `VideoDetail`)
+	- Afficher la liste des vidéos qui se trouvent dans son state : chaque vidéo de la liste est représentée simplement par son titre et une image de vignette fictive (en manque d'inspiration ? Jetez un oeil à http://placeimg.com/). <br>***Attention** pour que ce soit bien clair : l'affichage de la liste ne se fait **pas** avec le composant `VideoDetail` qui correspond à une autre page et qui contient notamment le player video, ce qu'on ne souhaite pas avoir dans la page liste.*
 
-2. **Quelques optimisations pour le composant `Video`** :
-- Dans le composant `Video` le champ description devient facultatif, ne pas l'afficher s'il n'y en a pas dans le state.
-- Toutes les 2 secondes, la vidéo affichée dans le composant `Video` doit changer pour afficher la vidéo suivante de la VideoList (externaliser la liste des vidéos dans un fichier js distinct `videos.js` et importé dans chaque composant)
-- Dans le composant `Video` ne pas re-rendre la vidéo si la vidéo n'a pas changé lors du changement aléatoire.
+1. **Quelques optimisations pour le composant `VideoDetail`** :
+	- Dans le composant `VideoDetail` le champ description devient facultatif, ne pas l'afficher s'il n'y en a pas dans le state.
+	- Toutes les 2 secondes, la vidéo affichée dans le composant `VideoDetail` doit changer pour afficher la vidéo suivante de la VideoList (externaliser la liste des vidéos dans un fichier js distinct `videos.js` et importé dans chaque composant)
+	- Dans le composant `VideoDetail` ne pas re-rendre la vidéo si la vidéo n'a pas changé lors du changement aléatoire.
 
 3. **Pour la `VideoList`** :
-- Toutes les X secondes, ajouter une nouvelle vidéo en haut de la `VideoList`
+	- Toutes les X secondes, ajouter une nouvelle vidéo en haut de la `VideoList`
 
 ## Proposition de DOM
 

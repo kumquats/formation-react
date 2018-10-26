@@ -23,14 +23,14 @@ Connecter l'application à des webservices et utiliser les formulaires avec Reac
 ## Instructions
 1. Dans `VideoList` remplacer l'utilisation des videos en dur par des données dynamiques : faire un appel GET vers le webservice `config.apiPath+"/videos"` pour récupérer la liste des vidéos depuis la base de données.
 2. créer un nouveau composant `VideoForm` qui permet d'enregistrer une nouvelle vidéo. Le composant est constitué d'un formulaire avec les champs suivants :
-        * Titre: type texte
-        * Description: textarea
-        * Fichier: type file
-		* au submit envoyer la vidéo au webservice POST `config.apiPath + "/videos"`
+	+ Titre : input type text
+	+ Description : textarea
+	+ Fichier : input type file
+3. Au submit envoyer la vidéo en POST au webservice **`config.apiPath + "/videos"`** : le webservice est configuré pour recevoir une requête multipart avec 3 valeurs : "title", "description" et "file". La documentation de superagent contient une section dédiée à ce type de requêtes : https://visionmedia.github.io/superagent/#multipart-requests
 
 ## Pour aller plus loin
-- Dans `Video` appeler le webservice GET `config.apiPath + "/videos/:id"` à l'affichage du composant (*NB: pour le moment mettre l'id en dur dans la classe) et mettre à jour le DOM une fois les données récupérées.
-- Dans la `Video`, créer une méthode `fetchComments` qui appelle le webservice GET `config.apiPath + "/videos/:id/comments"` et afficher la liste des commentaires reçus en dessous de la vidéo (cf. [Proposition de Markup](#proposition-de-markup)).
+- Dans `VideoDetail` appeler le webservice GET `config.apiPath + "/videos/:id"` à l'affichage du composant (*NB: pour le moment mettre l'id en dur dans la classe) et mettre à jour le DOM une fois les données récupérées.
+- Dans la `VideoDetail`, créer une méthode `fetchComments` qui appelle le webservice GET `config.apiPath + "/videos/:id/comments"` puis afficher la liste des commentaires reçus en dessous de la vidéo (cf. [Proposition de Markup](#proposition-de-markup)).
 - Au dessus des commentaires, créer un formulaire contenant :
     + un textarea
     + un input submit

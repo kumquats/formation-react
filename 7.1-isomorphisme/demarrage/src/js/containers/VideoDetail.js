@@ -23,13 +23,7 @@ function mapDispatchToProps( dispatch )
 }
 
 
-class Video extends React.Component {
-	static fetchData( store, params ) {
-		return Promise.all([
-			store.dispatch( fetchVideo( params.id ) ),
-			store.dispatch( fetchComments( params.id ) )
-		]);
-	}
+ class VideoDetail extends React.Component {
 
 	constructor() {
 		super();
@@ -130,4 +124,4 @@ class Video extends React.Component {
 
 }
 
-export default connect( mapStateToProps, mapDispatchToProps)( Video );
+export default connect( mapStateToProps, mapDispatchToProps )( VideoDetail );
