@@ -59,22 +59,20 @@ export default class VideoList extends React.Component {
 	}
 
 	renderVideos() {
-		return this.state.videos.map( ( video ) => {
-			return (
-				<li key={video.id} className="media">
-					<div className="media-left">
-					<img className="media-object"
-						alt="cat" src={'http://placeimg.com/246/138/animals?r='+video.id}
-						width="246"
-						height="138" />
-					</div>
-					<div className="media-body">
-						<h4 className="media-heading">{video.title}</h4>
-						<p>{video.description}</p>
-					</div>
-				</li>
-			);
-		});
+		return this.state.videos.map( video => (
+			<li key={video.id} className="media">
+				<div className="media-left">
+				<img className="media-object"
+					alt="cat" src={'http://placeimg.com/246/138/animals?r='+video.id}
+					width="246"
+					height="138" />
+				</div>
+				<div className="media-body">
+					<h4 className="media-heading">{video.title}</h4>
+					<p>{video.description}</p>
+				</div>
+			</li>
+		) );
 	}
 
 }

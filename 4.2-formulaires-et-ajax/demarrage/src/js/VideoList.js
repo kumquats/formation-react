@@ -24,11 +24,9 @@ export default class VideoList extends React.Component {
 	}
 
 	renderVideos() {
-		return this.state.videos.map( ( video ) => {
-			return (
-				<VideoItem key={video.id} video={video} />
-			);
-		});
+		return this.state.videos.map( video => (
+			<VideoItem key={video.id} video={video} />
+		) );
 	}
 
 }
