@@ -30,7 +30,7 @@ output: {
 ## Instructions
 1. **Modifier le fichier `src/js/app.js` pour initialiser une application React contenant un composant unique `VideoDetail`**<br>
 Rendre l'application dans la balise d'id `appContainer`.
-3. **Créer le composant `VideoDetail` dans le dossier `src/js`.** Ce composant :
+2. **Créer le composant `VideoDetail` dans le dossier `src/js`.** Ce composant :
     + dispose d'un state `video` de la forme :
 	```js
 	{
@@ -40,8 +40,9 @@ Rendre l'application dans la balise d'id `appContainer`.
 		file: <String>
 	}
 	```
-    + doit afficher le titre & la description de la vidéo contenue dans son state (cf. [Proposition de DOM](#proposition-de-dom))
-    + doit afficher une balise video dont la source correspond à la propriété `file` du state `video`
+	+ doit afficher le titre & la description de la vidéo contenue dans son state (cf. [Proposition de DOM](#proposition-de-dom))
+    + doit afficher une balise html5 `<video>` dont la source (attribut `src`) correspond à la propriété `file` du state `video`
+
 3. **Tester l'application sur `http://<votre-url-projet>/site/web`**
 
 
@@ -49,10 +50,22 @@ Rendre l'application dans la balise d'id `appContainer`.
 ## Pour aller plus loin
 1. **Créer un composant `VideoList`** :
 	- Modifier le fichier `app.js` pour afficher ce composant à la place du composant `VideoDetail`
-	- Initialiser le composant `VideoList` avec un state comprenant une propriété `videos` qui elle même contient une liste d'objets video (même format que le state `video` du composant `VideoDetail`)
-	- Afficher la liste des vidéos qui se trouvent dans son state : chaque vidéo de la liste est représentée simplement par son titre et une image de vignette fictive (en manque d'inspiration ? Jetez un oeil à http://placeimg.com/). <br>***Attention** pour que ce soit bien clair : l'affichage de la liste ne se fait **pas** avec le composant `VideoDetail` qui correspond à une autre page et qui contient notamment le player video, ce qu'on ne souhaite pas avoir dans la page liste.*
+	- Dans le composant `VideoList` initialiser le state avec une propriété `videos`. Cette propriété `videos`va contenir une liste d'objets du même format que le state `video` du composant `VideoDetail`.<br>
+	Dans chacun de ces objets, ajouter une propriété `thumbnail` qui contiendra le nom du fichier image correspondant à la vignette de la vidéo. Chaque objet du tableau aura donc ce format :
+	```js
+	{
+		id: <Integer>,
+		title: <String>,
+		description: <String>,
+		file: <String>,
+		thumbnail: <String>
+	}
+	```
+	- Afficher la liste des vidéos qui se trouvent dans son state : chaque vidéo de la liste sera représentée simplement par son titre et son image de vignette (champ `thumbnail`) cf. [Proposition de DOM](#proposition-de-dom) pour un exemple de code HTML.<br>
+	***Attention** pour que ce soit bien clair : l'affichage de la liste ne se fait **pas** avec le composant `VideoDetail` qui correspond à une autre page (qui contient notamment le player video qu'on ne souhaite pas avoir dans la page liste).*<br>
 
-1. **Quelques optimisations pour le composant `VideoDetail`** :
+
+2. **Quelques optimisations pour le composant `VideoDetail`** :
 	- Dans le composant `VideoDetail` le champ description devient facultatif, ne pas l'afficher s'il n'y en a pas dans le state.
 	- Toutes les 2 secondes, la vidéo affichée dans le composant `VideoDetail` doit changer pour afficher la vidéo suivante de la VideoList (externaliser la liste des vidéos dans un fichier js distinct `videos.js` et importé dans chaque composant)
 	- Dans le composant `VideoDetail` ne pas re-rendre la vidéo si la vidéo n'a pas changé lors du changement aléatoire.
@@ -62,7 +75,7 @@ Rendre l'application dans la balise d'id `appContainer`.
 
 ## Proposition de DOM
 
-**Video :**
+**VideoDetail :**
 ```html
 <div class="row marketing">
     <div class="col-sm-12 col-md-12">
@@ -92,7 +105,7 @@ Rendre l'application dans la balise d'id `appContainer`.
             <li class="media">
                 <div class="media-left">
                     <img class="media-object"
-                        alt="cat" src='http://placeimg.com/246/138/animals?r=0.1267489'
+                        alt="cat" src="./uploads/thumbnails/video1.jpg"
                         width="246"
 						height="138" />
                 </div>

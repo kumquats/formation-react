@@ -26,7 +26,7 @@ class VideoDetail extends React.Component {
 
 	constructor() {
 		super();
-		this.id = 1;
+		this.id = 2;
 		this.handleSubmit = this.handleSubmit.bind( this );
 		this.handleCommentInputChange = this.handleCommentInputChange.bind( this );
 	}

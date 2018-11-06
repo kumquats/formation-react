@@ -7,18 +7,18 @@ ALTER DATABASE `react_youtube` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
 
 USE `react_youtube`;
 
-CREATE TABLE `react_youtube`.`video` ( `id` INT NOT NULL AUTO_INCREMENT , `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , `title` VARCHAR(255) NOT NULL , `description` TEXT NOT NULL , `file` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `react_youtube`.`video` ( `id` INT NOT NULL AUTO_INCREMENT , `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , `title` VARCHAR(255) NOT NULL , `description` TEXT NOT NULL , `file` VARCHAR(255) NOT NULL , `thumbnail` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
-ALTER TABLE `video` CHANGE `title` `title` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL, CHANGE `description` `description` TEXT CHARACTER SET utf8 COLLATE utf8_bin NOT NULL, CHANGE `file` `file` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL;
-ALTER TABLE `video` ADD `likes` INT NULL AFTER `file`, ADD `dislikes` INT NULL AFTER `likes`;
+ALTER TABLE `video` CHANGE `title` `title` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL, CHANGE `description` `description` TEXT CHARACTER SET utf8 COLLATE utf8_bin NOT NULL, CHANGE `file` `file` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL, CHANGE `thumbnail` `thumbnail` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL;
+ALTER TABLE `video` ADD `likes` INT NULL AFTER `thumbnail`, ADD `dislikes` INT NULL AFTER `likes`;
 
-INSERT INTO `video` (`id`, `created_at`, `title`, `description`, `file`, `likes`, `dislikes`) VALUES
-(1, '2018-08-30 13:40:31', 'Le Top 10 des framework JS', "Vous n'en croirez pas vos yeux", 'video1.mp4', NULL, NULL),
-(2, '2018-07-21 08:08:30', '5 bonnes raisons de ne pas fuir cette formation', 'Vous allez halluciner ! Cliquez vite !', 'video2.mp4', NULL, NULL),
-(3, '2018-05-21 09:59:14', 'Les plus grands secrets des développeurs React', 'Cliquez et découvrez avant les autres ces astuces incroyables !', 'video3.mp4', NULL, NULL),
-(4, '2018-04-21 14:19:15', 'Votre DSI ne veut pas que vous voyiez cette vidéo !', 'Les experts sont formels : cette méthode de développement mystérieuse va changer votre vie.', 'video1.mp4', NULL, NULL),
-(5, '2018-03-21 15:27:33', 'Les gens vous supplieront de développer leur appli !', 'Visionnez cette vidéo au plus vite et apprenez les 1022 méthodes de développement les plus rentables.', 'video2.mp4', NULL, NULL),
-(6, '2018-02-21 15:32:50', 'Les 12 techniques imparables pour rater un café', 'Vous en avez marre de tout réussir ? Ratez aux moins les cafés grâce à cette vidéo inédite !', 'video3.mp4', NULL, NULL);
+INSERT INTO `video` (`id`, `created_at`, `title`, `description`, `file`, `thumbnail`, `likes`, `dislikes`) VALUES
+(1, '2018-08-30 13:40:31', 'Le Top 10 des framework JS', "Vous n'en croirez pas vos yeux", 'video1.mp4', 'video1.jpg', NULL, NULL),
+(2, '2018-07-21 08:08:30', '5 bonnes raisons de ne pas fuir cette formation', 'Vous allez halluciner ! Cliquez vite !', 'video2.mp4', 'video2.jpg', NULL, NULL),
+(3, '2018-05-21 09:59:14', 'Les plus grands secrets des développeurs React', 'Cliquez et découvrez avant les autres ces astuces incroyables !', 'video3.mp4', 'video3.jpg', NULL, NULL),
+(4, '2018-04-21 14:19:15', 'Votre DSI ne veut pas que vous voyiez cette vidéo !', 'Les experts sont formels : cette méthode de développement mystérieuse va changer votre vie.', 'video1.mp4', 'video4.jpg', NULL, NULL),
+(5, '2018-03-21 15:27:33', 'Les gens vous supplieront de développer leur appli !', 'Visionnez cette vidéo au plus vite et apprenez les 1022 méthodes de développement les plus rentables.', 'video2.mp4', 'video5.jpg', NULL, NULL),
+(6, '2018-02-21 15:32:50', 'Les 12 techniques imparables pour rater un café', 'Vous en avez marre de tout réussir ? Ratez aux moins les cafés grâce à cette vidéo inédite !', 'video3.mp4', 'video6.jpg', NULL, NULL);
 
 
 CREATE TABLE `comment` (

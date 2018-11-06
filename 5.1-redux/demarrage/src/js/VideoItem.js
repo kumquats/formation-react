@@ -6,7 +6,7 @@ const VideoItem = props => (
 		<a href="#">
 			<div className="media-left">
 				<img className="media-object"
-					alt="cat" src={'http://placeimg.com/246/138/animals?r='+props.video.id}
+					alt="cat" src={'./uploads/thumbnails/'+props.video.thumbnail}
 					width="246"
 					height="138" />
 			</div>
