@@ -25,7 +25,8 @@ Connecter l'application à des webservices et utiliser les formulaires avec Reac
 2. créer un nouveau composant `VideoForm` qui permet d'enregistrer une nouvelle vidéo. Le composant est constitué d'un formulaire avec les champs suivants :
 	+ Titre : input type text
 	+ Description : textarea
-	+ Fichier : input type file
+	+ Fichier : input type file<br/>
+	*NB : la vignette est générée automatiquement côté serveur, pas besoin de champ de saisie dans le formulaire donc !*
 3. Au submit envoyer la vidéo en POST au webservice **`config.apiPath + "/videos"`** : le webservice est configuré pour recevoir une requête multipart avec 3 valeurs : "title", "description" et "file". La documentation de superagent contient une section dédiée à ce type de requêtes : https://visionmedia.github.io/superagent/#multipart-requests
 
 ## Pour aller plus loin

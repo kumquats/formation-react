@@ -47,11 +47,19 @@ $app->post('/api/videos', function (Request $request) use ($app) {
         $file = $request->files->getIterator()->current();
         $path = __DIR__.'/../web/uploads/';
         $filename = $file->getClientOriginalName();
-        $fileMoved = $file->move($path,$filename);
+		$fileMoved = $file->move($path,$filename);
+		$thumbnails = [
+			'video7.jpg',
+			'video8.jpg',
+			'video9.jpg',
+			'video10.jpg',
+			'video11.jpg'
+		];
         $video = array(
             'file' => $filename,
             'title' => $request->get('title'),
-            'description' => $request->get('description')
+			'description' => $request->get('description'),
+			'thumbnail' => $thumbnails[ array_rand($thumbnails) ]
         );
         if ($fileMoved && $app['db']->insert('video', $video))
         {
