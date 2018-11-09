@@ -21,7 +21,7 @@ L'objectif de ce TP est d'apprendre à structurer l'application et à gérer eff
 	      ├─ components/
 	      │   └─ VideoItem.js
 	      ├─ containers/
-	      │   ├─ Video.js
+	      │   ├─ VideoDetail.js
 	      │   ├─ VideoForm.js
 	      │   └─ VideoList.js
 	      ├─ reducers/
