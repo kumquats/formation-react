@@ -27,9 +27,11 @@ npm install --save react-router react-router-dom connected-react-router
 		* et le composant `Layout` (comme composant enfant).
     + Le store a aussi besoin du `browserHistory`, on va donc le passer en paramètre de la fonction `configureStore`
 
-3. **Modifier le store pour le rendre capable de gérer le state de react-router** à l'aide du décorateur `connectRouter()`. Ajouter également le `routerMiddleware` de `connected-react-router` dans les middlewares du store.
+3. **Adapter le reducer de manière à gérer le state de react-router** en faisant en sorte de ne plus retourner directement le résultat du **combineReducers** mais une fonction qui reçoit un **history** en paramètre et **retourne le résultat du combineReducers**. Ajouter également le sous-reducer **connectRouter** en l'associant à la propriété **router** du state et en lui passant l'history reçu en paramètre.
 
-4. **Modifier le composant `VideoItem` pour permettre à l'utilisateur, lorsqu'il clique sur un VideoItem, d'afficher la page détail de la vidéo associée** grâce au compostant `<Link>` de `react-router-dom`
+4. **Modifier le store pour le rendre capable de gérer le state de react-router** En envoyant l'history, reçu en paramètre, au reducer. Ajouter également le `routerMiddleware` de `connected-react-router` dans les middlewares du store.
+
+5. **Modifier le composant `VideoItem` pour permettre à l'utilisateur, lorsqu'il clique sur un VideoItem, d'afficher la page détail de la vidéo associée** grâce au compostant `<Link>` de `react-router-dom`
 
 ## Pour aller plus loin
 - **Créer un composant `Menu` dans le dossier `js/components`** (cf. [Proposition de Markup](#proposition-de-markup))
