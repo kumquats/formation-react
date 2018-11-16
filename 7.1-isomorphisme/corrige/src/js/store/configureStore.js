@@ -1,9 +1,7 @@
 import { applyMiddleware, createStore, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { connectRouter, routerMiddleware } from "connected-react-router";
-import reducer from '../reducers';
-
-
+import { routerMiddleware } from "connected-react-router";
+import createRootReducer from '../reducers';
 
 export default function configureStore( browserHistory, preloadedState ) {
 
@@ -13,9 +11,7 @@ export default function configureStore( browserHistory, preloadedState ) {
 	const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 	const store = createStore(
-		// On enrobe notre reducer avec celui de
-        // react router en lui passant l'historique
-		connectRouter( browserHistory )( reducer ),
+		createRootReducer( browserHistory ),
 		// on passe le state calculé côté server
 		preloadedState,
 		// On enrobe le applyMiddleware avec

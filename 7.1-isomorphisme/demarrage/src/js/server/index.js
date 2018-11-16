@@ -4,7 +4,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { matchPath } from 'react-router';
-import { connectRouter, routerMiddleware, ConnectedRouter } from 'connected-react-router';
+import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
 import { renderToString } from 'react-dom/server';
 import { createMemoryHistory } from 'history';
 import thunk from 'redux-thunk';
@@ -14,7 +14,7 @@ import page from './page';
 
 // on importe les classes de notre application qui seront nécessaires au rendu de la page
 import routes from '../routes';
-import reducer from '../reducers';
+import createRootReducer from '../reducers';
 import Layout from '../containers/Layout';
 
 // on crée une instance de serveur http express
@@ -32,7 +32,7 @@ app.get(/^\/.*/, (req, res, next) => {
 	// comme on est pas dans un navigateur, on utilise memoryHistory au lieu browserHistory
 	const memoryHistory = createMemoryHistory({initialEntries: [req.originalUrl]});
 	const store = createStore(
-		connectRouter( memoryHistory )( reducer ),
+		createRootReducer( memoryHistory ),
 		applyMiddleware( thunk, routerMiddleware( memoryHistory ) )
 	);
 
