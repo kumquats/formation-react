@@ -27,7 +27,10 @@ Connecter l'application à des webservices et utiliser les formulaires avec Reac
 	+ Description : textarea
 	+ Fichier : input type file<br/>
 	*NB : la vignette est générée automatiquement côté serveur, pas besoin de champ de saisie dans le formulaire donc !*
-3. Au submit envoyer la vidéo en POST au webservice **`config.apiPath + "/videos"`** : le webservice est configuré pour recevoir une requête multipart avec 3 valeurs : "title", "description" et "file". La documentation de superagent contient une section dédiée à ce type de requêtes : https://visionmedia.github.io/superagent/#multipart-requests
+3. Au submit envoyer la vidéo en POST au webservice **`config.apiPath + "/videos"`** : le webservice est configuré pour recevoir une requête multipart avec 3 valeurs : "title", "description" et "file". La documentation de superagent contient une section dédiée à ce type de requêtes : https://visionmedia.github.io/superagent/#multipart-requests <br>***NB:** Pour récupérer une référence de fichier exploitable par le webservice depuis votre `<input type="file">`, vous pouvez utiliser le code suivant :*
+	```js
+	myFileInput.files[0]
+	```
 
 ## Pour aller plus loin
 - Dans `VideoDetail` appeler le webservice GET `config.apiPath + "/videos/:id"` à l'affichage du composant (*NB: pour le moment mettre l'id en dur dans la classe) et mettre à jour le DOM une fois les données récupérées.
