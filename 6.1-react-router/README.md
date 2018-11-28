@@ -20,7 +20,7 @@ npm install --save react-router react-router-dom connected-react-router
 	- ne pas oublier l'utilisation du décorateur `withRouter()` dans l'export de la classe !
 
 2. **Dans le fichier `js/app.js`**
-    + Créer un objet `browserHistory` à l'aide de la fonction `createBrowserHistory()` de `connected-react-router` et lui passer l'url de base du site
+    + Créer un objet `browserHistory` à l'aide de la fonction `createBrowserHistory()` de la librairie `history` (installée avec react-router) et lui passer l'url de base du site (via la variable `config.basePath`)
     + Dans le `render()`, à l'intérieur du composant `<Provider>`, rendre un composant `<ConnectedRouter>` (importé de `connected-react-router`).
     + Remplacer le contenu du `<Provider>` par une instance de composant `ConnectedRouter` de `connected-react-router`. Lui passer :
 		* le `browserHistory` (prop "history")
