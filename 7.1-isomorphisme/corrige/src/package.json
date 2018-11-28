@@ -33,7 +33,7 @@
 		"webpack-cli": "^3.1.0"
 	},
 	"dependencies": {
-		"connected-react-router": "^4.4.1",
+		"connected-react-router": "^5.0.1",
 		"express": "^4.16.3",
 		"react": "^16.5.2",
 		"react-dom": "^16.5.2",
