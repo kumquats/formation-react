@@ -34,25 +34,41 @@ L'objectif de ce TP est de mettre en place la base d'un projet utilisant le gest
 
 ## Instructions
 1. **Créer un fichier `src/webpack.config.js` et configurer webpack :**
-	- Définissez le fichier d'entrée à `./js/app.js`
-	- Configurez le fichier de sortie dans `build/app.bundle.js`, vous aurez pour cela besoin du module `path` dont vous trouverez un exemple d'utilisation dans la [documentation de webpack](https://webpack.js.org/concepts/#output)
-	- Faites en sorte que les fichiers `.js` soient compilés via `babel-loader` tout en excluant le dossier `node_modules`. L'exemple se trouve dans le support mais la documentation des différents loaders de webpack est [disponible ici](https://webpack.js.org/loaders/)
+	```js
+	const path = require('path');
+	module.exports = {
+		entry: './js/app.js', // Fichier d'entrée
+		output: { // Fichier de sortie
+			path: path.resolve(__dirname, './build'),
+			filename: 'app.bundle.js'
+		},
+		module: {
+			rules: [{
+				test: /\.js$/, // tous les fichiers .js ...
+				exclude: /node_modules/, // ... sauf le dossier node_modules ...
+				use: { // ... seront transpilés par babel
+					loader: 'babel-loader'
+				}
+			}]
+		}
+	}
+	```
 2. **Créer un premier module `js/helloWorld.js` :**
 	- y placer une fonction **"helloWorld()"** qui affiche dans la console le message  '**Hello world !**'
 	- Penser à exportez la fonction pour la rendre disponible aux autres modules
 3. **Créer un fichier `js/app.js` :**
     - Importer le module `helloWorld` créé précédemment
     - Appeler la méthode retournée par ce module
-4. **Lancer la compilation avec webpack** <br>grâce à la commande "build" configurée dans le `package.json`
+4. **Lancer la compilation avec webpack** grâce à la commande `"build"` configurée dans le `package.json` :
 	```bash
 	npm run build
 	```
 1. **Créer un fichier `src/index.html` :**
-	+ Y inclure une structure html de base
-    + Inclure le fichier `./build/app.bundle.js` dans la page
-	+ Tester la page `index.html` dans le navigateur et vérifier que la fonction helloWorld() affiche bien un message dans la console
-6. **Configurer webpack pour générer des fichiers source-maps** à l'aide de la clé de configuration "devtool" (cf. documentation : https://webpack.js.org/configuration/devtool/)
-7. **Passer du mode "production" (par défaut) au mode "development"** (cf. https://webpack.js.org/concepts/mode/) et constater la différence sur le fichier `app.bundle.js`
+	- Y inclure une structure html de base
+    - Charger le fichier `./build/app.bundle.js` dans la page
+	- Tester la page `index.html` dans le navigateur (*en `http://` et pas en `file://`*) et vérifier que la fonction `helloWorld()` affiche bien un message dans la console
 
 ## Pour aller plus loin
-- Adapter le tp précédent (ui-framework) en utilisant les modules
+1. **Configurer webpack pour générer des fichiers source-maps** à l'aide de la clé de configuration "devtool" (cf. documentation : https://webpack.js.org/configuration/devtool/)
+2. **Passer du mode "production" (appliqué par défaut) au mode "development"** (cf. https://webpack.js.org/concepts/mode/) et constater la différence sur le fichier `app.bundle.js`
+3. **Adapter le tp précédent (ui-framework) en utilisant les modules**
