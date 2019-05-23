@@ -15,7 +15,6 @@ export default function(state = {video: null, isLoading: false}, action) {
 				video: action.video,
 				isLoading: false,
 			};
-		default:
-			return state;
 	}
+	return state;
 }

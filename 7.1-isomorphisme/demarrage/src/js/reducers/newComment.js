@@ -23,8 +23,7 @@ export default function(state = {comment: null, isLoading: false, input: ''}, ac
 				comment: state.comment,
 				isLoading: false,
 				input: action.input
-			}
-		default:
-			return state;
+			};
 	}
+	return state;
 }
