@@ -68,10 +68,10 @@ export default class VideoList extends React.Component {
 		return this.state.videos.map( video => (
 			<li key={video.id} className="media">
 				<div className="media-left">
-				<img className="media-object"
-					alt="cat" src={'./uploads/thumbnails/'+video.thumbnail}
-					width="246"
-					height="138" />
+					<img className="media-object"
+						alt="cat" src={'./uploads/thumbnails/'+video.thumbnail}
+						width="246"
+						height="138" />
 				</div>
 				<div className="media-body">
 					<h4 className="media-heading">{video.title}</h4>
