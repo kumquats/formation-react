@@ -22,12 +22,12 @@ Connecter l'application à des webservices et utiliser les formulaires avec Reac
 
 ## Instructions
 1. Dans `VideoList` remplacer l'utilisation des videos en dur par des données dynamiques : faire un appel GET vers le webservice `config.apiPath+"/videos"` pour récupérer la liste des vidéos depuis la base de données.
-2. créer un nouveau composant `VideoForm` qui permet d'enregistrer une nouvelle vidéo. Le composant est constitué d'un formulaire avec les champs suivants :
+2. créer un nouveau composant `VideoForm` qui permet d'enregistrer une nouvelle vidéo. Le composant est constitué d'un formulaire **non contrôlé** avec les champs suivants :
 	+ Titre : input type text
 	+ Description : textarea
 	+ Fichier : input type file<br/>
 	*NB : la vignette est générée automatiquement côté serveur, pas besoin de champ de saisie dans le formulaire donc !*
-3. Au submit envoyer la vidéo en POST au webservice **`config.apiPath + "/videos"`** : le webservice est configuré pour recevoir une requête multipart avec 3 valeurs : "title", "description" et "file". La documentation de superagent contient une section dédiée à ce type de requêtes : https://visionmedia.github.io/superagent/#multipart-requests <br>***NB:** Pour récupérer une référence de fichier exploitable par le webservice depuis votre `<input type="file">`, vous pouvez utiliser le code suivant :*
+3. Au submit envoyer la vidéo en POST au webservice **`config.apiPath + "/videos"`** : le webservice est configuré pour recevoir une requête multipart avec 3 valeurs : "title", "description" et "file". <br>La documentation de superagent contient une section dédiée aux requêtes POST avec des fichiers : https://visionmedia.github.io/superagent/#multipart-requests <br>***NB:** Pour récupérer une référence de fichier exploitable par le webservice depuis votre `<input type="file">`, vous pouvez utiliser le code suivant :*
 	```js
 	myFileInput.files[0]
 	```
