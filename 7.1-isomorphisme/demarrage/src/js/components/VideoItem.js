@@ -21,9 +21,9 @@ const VideoItem = props => (
 );
 VideoItem.propTypes = {
 	video: PropTypes.shape({
-		id: PropTypes.number.isRequired,
 		title: PropTypes.string,
 		description: PropTypes.string,
+		thumbnail: PropTypes.string.isRequired
 	}).isRequired
 }
 
