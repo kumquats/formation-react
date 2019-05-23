@@ -1,26 +1,18 @@
 const path = require('path');
-
 module.exports = {
-	// Fichier d'entrée
-	entry: './js/app.js',
-	// Fichier de sortie
-	output: {
+	entry: './js/app.js', // Fichier d'entrée
+	output: { // Fichier de sortie
 		path: path.resolve(__dirname, './build'),
 		filename: 'app.bundle.js'
 	},
 	module: {
-		rules: [
-			{
-				test: /\.js$/, // tous les fichiers .js
-				exclude: /node_modules/, // sauf le dossier node_modules
-				use: { // seront transpilés par babel
-					loader: 'babel-loader',
-					options: {
-						cacheDirectory: true // accélère la génération des JS en cachant les transpilations
-					}
-				}
+		rules: [{
+			test: /\.js$/, // tous les fichiers .js ...
+			exclude: /node_modules/, // ... sauf le dossier node_modules ...
+			use: { // ... seront transpilés par babel
+				loader: 'babel-loader'
 			}
-		]
+		}]
 	},
 	devtool: 'source-map'
 }
