@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 export default class Menu extends Component {
 	render() {
@@ -15,10 +15,10 @@ export default class Menu extends Component {
 						</div>
 						<ul className="nav navbar-nav navbar-right">
 							<li>
-								<Link to="/">Liste des vidéos</Link>
+								<NavLink to="/" exact>Liste des vidéos</NavLink>
 							</li>
 							<li>
-								<Link to="/videos/new">Ajouter une vidéo</Link>
+								<NavLink to="/videos/new" exact>Ajouter une vidéo</NavLink>
 							</li>
 						</ul>
 					</div>

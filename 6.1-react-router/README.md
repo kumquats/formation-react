@@ -39,6 +39,7 @@ npm install --save react-router react-router-dom connected-react-router
         * Un lien vers la page d'accueil (**VideoList**)
         * Un lien vers la page de création de vidéo (**VideoForm**)
     + Afficher ce composant dans le composant `Layout` juste avant le `<Switch>`
+    + Remplacer les composants `<Link>` par des `<NavLink>` : les boutons ont la classe "active" lorsqu'on se trouve sur la page à laquelle ils correspondent. Tester le comportement de la prop `exact` : https://reacttraining.com/react-router/web/api/NavLink/exact-bool
 - **Modifier le composant **VideoForm** afin d'effectuer une redirection vers la page détail de la vidéo lorsqu'elle a été créée à l'aide de l'action creator `push`**
 
 ## Proposition de markup
