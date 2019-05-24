@@ -12,17 +12,15 @@ import configureStore from './store/configureStore';
 // On crée le store en lui fournissant le "reducer"
 // const store = createStore( reducer );
 //
-// Pour pouvoir utiliser les Redux Devtools la syntaxe,
+// Pour pouvoir utiliser les Redux Devtools, la syntaxe
 // plus complexe est externalisée dans un module configureStore
 const store = configureStore();
 
 ReactDOM.render(
 	<Provider store={store}>
-		<VideoDetail />
-	</Provider>
-/*
 		<VideoList />
-		<VideoForm />
-*/
+		{/* <VideoForm /> */}
+		{/* <VideoDetail /> */}
+	</Provider>
 	, document.querySelector('#appContainer')
 );
