@@ -22,26 +22,26 @@
 	},
 	"homepage": "https://github.com/kumquats/formation-react#readme",
 	"devDependencies": {
-		"@babel/cli": "^7.1.0",
-		"@babel/core": "^7.1.0",
+		"@babel/cli": "^7.4.4",
+		"@babel/core": "^7.4.5",
 		"@babel/plugin-proposal-object-rest-spread": "^7.0.0",
-		"@babel/preset-env": "^7.1.0",
+		"@babel/preset-env": "^7.4.5",
 		"@babel/preset-react": "^7.0.0",
-		"@babel/register": "^7.0.0",
-		"babel-loader": "^8.0.2",
-		"webpack": "^4.19.1",
-		"webpack-cli": "^3.1.0"
+		"@babel/register": "^7.4.4",
+		"babel-loader": "^8.0.6",
+		"webpack": "^4.32.2",
+		"webpack-cli": "^3.3.2"
 	},
 	"dependencies": {
-		"connected-react-router": "^5.0.1",
-		"express": "^4.16.3",
-		"react": "^16.5.2",
-		"react-dom": "^16.5.2",
-		"react-redux": "^5.0.7",
-		"react-router": "^4.3.1",
-		"react-router-dom": "^4.3.1",
-		"redux": "^4.0.0",
+		"connected-react-router": "^6.4.0",
+		"express": "^4.17.0",
+		"react": "^16.8.6",
+		"react-dom": "^16.8.6",
+		"react-redux": "^7.0.3",
+		"react-router": "^5.0.0",
+		"react-router-dom": "^5.0.0",
+		"redux": "^4.0.1",
 		"redux-thunk": "^2.3.0",
-		"superagent": "^4.0.0-beta.5"
+		"superagent": "^5.0.5"
 	}
 }
