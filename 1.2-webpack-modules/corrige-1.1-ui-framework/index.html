@@ -6,7 +6,26 @@
 	<meta charset="utf-8">
 	<style type="text/css">
 		body {
-			font-family: Arial;
+			font-family: Helvetica, Arial, sans-serif;
+			background: #f1f1f1;
+			color: #333;
+			padding: 30px;
+		}
+		body > div {
+			background: white;
+			padding: 20px;
+			margin-bottom: 30px;
+		}
+		body > div > h3 {
+			margin-top: 0;
+		}
+		body > div > div {
+			background: #f6f6f6;
+			border: 1px dashed #999;
+			background: #f6faff;
+			border: 1px dashed #bcd;
+			padding: 10px;
+			border-radius: 5px;
 		}
 	</style>
 </head>
@@ -14,12 +33,41 @@
 	<h1>TP Framework UI</h1>
 
 	<div>
-		<h3>Test Component</h3>
-
-		<p>Si tout fonctionne bien, une div avec un h3 et un input text doit s'afficher.</p>
-		<div id="component-container">
-
-		</div>
+		<h3>1.1. La classe Component : les children</h3>
+		<p>Si tout fonctionne bien, une balise strong doit s'afficher :</p>
+		<div id="component-container-1"></div>
+		<script>
+			var component1 = new Component( 'strong', {}, ['super !'] );
+			document.querySelector( '#component-container-1' ).innerHTML = component1.render();
+		</script>
+	</div>
+	<div>
+		<h3>1.2. La classe Component : plusieurs children</h3>
+		<p>Si tout fonctionne bien, le texte &quot;ce TP est fantastique !&quot; doit s'afficher dans un h2:</p>
+		<div id="component-container-2"></div>
+		<script>
+			var component1 = new Component( 'h2', {}, [
+				'ce ',
+				new Component( 'em', {}, ['TP'] ),
+				new Component( 'small', {}, ['est'] ),
+				'fantastique !',
+			] );
+			document.querySelector( '#component-container-2' ).innerHTML = component1.render();
+		</script>
+	</div>
+	<div>
+		<h3>1.3. La classe Component : les attributs</h3>
+		<p>Si tout fonctionne bien, un span avec un fond rose et le texte &quot;YOUPI&quot; en blanc doit s'afficher :</p>
+		<div id="component-container-3"></div>
+		<script>
+			var component2 = new Component( 'span', {style: 'background:#f0f;color:white;'}, ['YOUPI'] );
+			document.querySelector( '#component-container-3' ).innerHTML = component2.render();
+		</script>
+	</div>
+	<div>
+		<h3>1.4. La classe Component : la totale</h3>
+		<p>Si tout fonctionne bien, une div avec une bordure noire, contenant un h3 (contenant un strong bleu) et un input text doit s'afficher :</p>
+		<div id="component-container-4"></div>
 		<script>
 			var component = new Component( 'div', { style: "border: 1px solid black" }, [
 					new Component( 'h3', {}, [
@@ -27,33 +75,27 @@
 						new Component( 'strong', { style: 'color: blue' }, [ 'framework' ] ),
 						' ui'
 					] ),
-					new Component( 'input', { type: 'text', value: 'Ca a l\'air de fonctionner correctement', style: 'width: 500px' } )
+					new Component( 'input', { type: 'text', value: 'Ca a l\'air de fonctionner correctement', style: 'font-style: italic;width:300px;' } )
 				] );
-			document.getElementById( 'component-container' ).innerHTML = component.render();
+			document.querySelector( '#component-container-4' ).innerHTML = component.render();
 		</script>
 	</div>
 	<div>
-		<h3>Test Button</h3>
-
+		<h3>2. La classe Button</h3>
 		<p>Si tout fonctionne bien, le Button doit s'afficher ci-dessous.<p>
-		<div id="button-container">
-
-		</div>
+		<div id="button-container"></div>
 		<script>
 			var button = new Button( 'Ceci est un bouton' );
-			document.getElementById( 'button-container' ).innerHTML = button.render();
+			document.querySelector( '#button-container' ).innerHTML = button.render();
 		</script>
 	</div>
 	<div>
-		<h3>Test RoundedRedButton</h3>
-
+		<h3>3. La classe RoundedRedButton</h3>
 		<p>Si tout fonctionne bien, le RoundedRedButton doit s'afficher ci-dessous.<p>
-		<div id="rounded-red-button-container">
-
-		</div>
+		<div id="rounded-red-button-container"></div>
 		<script>
 			var roundedRedButton = new RoundedRedButton( 'Ceci est un bouton rouge arrondi' );
-			document.getElementById( 'rounded-red-button-container' ).innerHTML = roundedRedButton.render();
+			document.querySelector( '#rounded-red-button-container' ).innerHTML = roundedRedButton.render();
 		</script>
 	</div>
 </body>
