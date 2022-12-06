@@ -34,7 +34,7 @@
 	},
 	"dependencies": {
 		"connected-react-router": "^6.5.2",
-		"express": "^4.17.1",
+		"express": "^4.18.2",
 		"react": "^16.10.2",
 		"react-dom": "^16.10.2",
 		"react-redux": "^7.1.1",
